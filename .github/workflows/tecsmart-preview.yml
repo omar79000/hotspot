@@ -1,0 +1,98 @@
+name: Build Tecsmart mobile preview
+
+on:
+  push:
+    branches:
+      - feature/tecsmart-modern-ui
+    paths:
+      - "analysis/extracted/Tecsmart/Tecsmart/**"
+      - "tools/check_tecsmart_preview.py"
+      - "tools/test_tecsmart_preview.mjs"
+      - ".github/workflows/tecsmart-preview.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tecsmart-preview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out preview branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch main compatibility baseline
+        run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install browser test dependency
+        run: npm install --no-save --no-package-lock playwright@1.55.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Check protected RouterOS and page contracts
+        run: python3 tools/check_tecsmart_preview.py
+
+      - name: Start local preview server
+        run: |
+          python3 -m http.server 8765 --directory analysis/extracted/Tecsmart/Tecsmart > /tmp/tecsmart-preview-server.log 2>&1 &
+          echo $! > /tmp/tecsmart-preview-server.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tecsmart-preview-server.log
+          exit 1
+
+      - name: Run responsive Chromium and speed-gate smoke tests
+        run: node tools/test_tecsmart_preview.mjs
+
+      - name: Assemble test package
+        if: always()
+        run: |
+          mkdir -p preview-package
+          cp -a analysis/extracted/Tecsmart/Tecsmart preview-package/Tecsmart
+          cat > preview-package/PREVIEW-README.txt <<'EOF'
+          Tecsmart dark mobile-first preview
+          
+          This package is a visual preview based on the Tecsmart source folder.
+          To test on MikroTik, first back up the current Hotspot directory and use
+          a separate test Hotspot/profile where possible. Upload the contents of
+          the Tecsmart folder into the router's Hotspot directory, preserving the
+          internal folders (css, js, config, fonts, img, adimg).
+          
+          The visual changes are in index.html and css/tecsmart-modern.css.
+          RouterOS templates, JavaScript, speed values, and config are protected
+          by source checks against the repository main branch.
+          
+          The browser smoke test uses a local mock response for /login. It does
+          not authenticate against a real MikroTik and does not verify live
+          speed/profile assignment. Verify login, speed changes, status, and
+          logout on a test router before production use.
+          EOF
+          (cd preview-package && zip -qr "$GITHUB_WORKSPACE/Tecsmart-preview.zip" .)
+
+      - name: Upload preview package, screenshots, and browser report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tecsmart-mobile-dark-preview
+          path: |
+            Tecsmart-preview.zip
+            artifacts/
+          if-no-files-found: warn
+          retention-days: 14
