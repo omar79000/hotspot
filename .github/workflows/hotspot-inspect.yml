@@ -1,0 +1,105 @@
+name: Inspect Hotspot archives
+
+on:
+  push:
+    branches:
+      - analysis/hotspot-audit-2026-11-13
+    paths:
+      - .github/workflows/hotspot-inspect.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout inspection branch
+        uses: actions/checkout@v4
+
+      - name: Install archive tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y p7zip-full unrar-free
+
+      - name: Extract archives without modifying originals
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work/extracted work/reports
+          cp -- AL-TAJ.NET.rar.zip Tecsmart.zip work/
+          cd work
+          7z x -y AL-TAJ.NET.rar.zip -oextracted/AL-TAJ
+          7z x -y Tecsmart.zip -oextracted/Tecsmart
+          # Recursively unpack nested ZIP/RAR archives, keeping originals.
+          for pass in 1 2 3 4; do
+            mapfile -d '' archives < <(find extracted -type f \\( -iname '*.zip' -o -iname '*.rar' \\) -print0)
+            [ "${#archives[@]}" -gt 0 ] || break
+            for archive in "${archives[@]}"; do
+              dest="${archive}.contents"
+              mkdir -p "$dest"
+              7z x -y "$archive" "-o$dest" || echo "WARN: could not extract $archive" >> reports/extraction-warnings.txt
+            done
+          done
+          find extracted -type f -printf '%P\t%s bytes\n' | sort > reports/file-manifest.txt
+
+      - name: Generate source inventory and compatibility report
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re, hashlib
+          root=Path("work/extracted")
+          report=Path("work/reports/audit-report.md")
+          exts={".html",".htm",".css",".js",".json",".txt",".xml",".php",".asp",".inc"}
+          files=[p for p in root.rglob("*") if p.is_file()]
+          lines=["# Hotspot archive inspection","",
+                 "This report is generated from the two repository archives. Original ZIP/RAR files are not modified.","",
+                 "## Extracted file inventory",""]
+          for p in files:
+              rel=p.relative_to(root)
+              lines.append(f"- `{rel}` — {p.stat().st_size} bytes")
+          lines += ["","## Text source analysis",""]
+          for p in files:
+              if p.suffix.lower() not in exts: continue
+              try: text=p.read_text(encoding="utf-8",errors="replace")
+              except Exception: continue
+              lines += [f"### `{p.relative_to(root)}`","",
+                        f"- Lines: {len(text.splitlines())}; SHA-256: `{hashlib.sha256(p.read_bytes()).hexdigest()}`"]
+              patterns=[
+                ("HTML forms",r"<form\\b[^>]*>"),
+                ("Form fields",r"<input\\b[^>]*>|<select\\b[^>]*>|<button\\b[^>]*>"),
+                ("MikroTik template variables",r"\\$\\([^)]+\\)"),
+                ("MikroTik-style substitutions",r"\\$[A-Za-z_][A-Za-z0-9_]*"),
+                ("External/local references",r"(?:src|href)=['\"][^'\"]+['\"]"),
+                ("JavaScript endpoints/actions",r"(?:fetch|XMLHttpRequest|location\\.href|window\\.location)"),
+                ("Login/logout terms",r"(?i)login|logout|chap|pap|username|password|dst|popup|error|status")
+              ]
+              for label,pat in patterns:
+                  hits=re.findall(pat,text)
+                  if hits:
+                      lines.append(f"- **{label}** ({len(hits)} matches):")
+                      for hit in list(dict.fromkeys(hits))[:30]:
+                          lines.append(f"  - `{str(hit)[:240]}`")
+              lines.append("")
+          lines += ["## Notes","",
+                    "- Static inspection only; this does not execute page JavaScript or emulate RouterOS Hotspot.",
+                    "- RouterOS template variables and login flow must be validated against the router's actual Hotspot files and runtime behavior.",
+                    "- Review extracted HTML/CSS/JS source before changing filenames, form actions, input names, or template variables."]
+          report.write_text("\n".join(lines),encoding="utf-8")
+          PY
+
+      - name: Package inspection results
+        run: |
+          cd work
+          zip -qr hotspot-inspection-results.zip extracted reports
+
+      - name: Upload inspection results
+        uses: actions/upload-artifact@v4
+        with:
+          name: hotspot-inspection-results
+          path: |
+            work/reports/
+            work/hotspot-inspection-results.zip
+          retention-days: 14
