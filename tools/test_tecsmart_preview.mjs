@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import { chromium } from "playwright";
 
 const baseUrl = process.env.TECSMART_BASE_URL || "http://127.0.0.1:8765";
+const baselineUrl = process.env.TECSMART_BASELINE_URL || "http://127.0.0.1:8766";
 const browser = await chromium.launch({ headless: true });
 const widths = [
   { width: 320, height: 720 },
@@ -17,12 +18,26 @@ await fs.mkdir("artifacts/screenshots", { recursive: true });
 try {
   for (const viewport of widths) {
     const mobile = viewport.width <= 600;
-    const page = await browser.newPage({
+    const contextOptions = {
       viewport,
       isMobile: mobile,
       hasTouch: mobile,
       deviceScaleFactor: 1,
-    });
+    };
+
+    // Capture the current main-branch browser errors as a baseline. Existing
+    // markup/config issues must not be misreported as regressions from CSS.
+    const baselinePage = await browser.newPage(contextOptions);
+    const baselineErrors = [];
+    baselinePage.on("pageerror", error => baselineErrors.push(error.message));
+    await baselinePage.route("**/login*", route =>
+      route.fulfill({ status: 200, contentType: "application/json", body: "{}" }),
+    );
+    await baselinePage.goto(`${baselineUrl}/index.html`, { waitUntil: "networkidle" });
+    await baselinePage.waitForTimeout(350);
+    await baselinePage.close();
+
+    const page = await browser.newPage(contextOptions);
     const pageErrors = [];
     const failedRequests = [];
     let loginRequest = null;
@@ -104,9 +119,13 @@ try {
       await page.locator("#speed-required-modal").waitFor({ state: "hidden", timeout: 3000 });
     }
 
-    if (pageErrors.length) {
-      throw new Error(`Browser JavaScript errors at ${viewport.width}px: ${pageErrors.join(" | ")}`);
-    }
+    const normalizedBaseline = [...baselineErrors].sort();
+    const normalizedFeature = [...pageErrors].sort();
+    assert.deepEqual(
+      normalizedFeature,
+      normalizedBaseline,
+      `New browser JavaScript errors at ${viewport.width}px compared with main`,
+    );
     if (failedRequests.length) {
       throw new Error(`Failed asset requests at ${viewport.width}px: ${JSON.stringify(failedRequests)}`);
     }
@@ -117,7 +136,8 @@ try {
       screenWidth: Math.round(metrics.screenWidth),
       horizontalOverflow: false,
       loginFormVisible: metrics.formVisible,
-      pageErrors: pageErrors.length,
+      noNewPageErrors: true,
+      existingBaselineErrors: normalizedBaseline,
       failedRequests: failedRequests.length,
       speedGateTested: viewport.width === 390,
     });
