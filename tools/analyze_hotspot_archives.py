@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Safely extract and statically inspect the two MikroTik Hotspot archives."""
+"""Safely extract and statically inspect the MikroTik Hotspot archives."""
 from pathlib import Path
 import hashlib, json, re, subprocess, zipfile
 
 ROOT = Path(".")
 OUT = Path("analysis-output")
 OUT.mkdir(exist_ok=True)
-SOURCES = {"AL-TAJ.NET": ROOT / "AL-TAJ.NET.rar.zip", "Tecsmart": ROOT / "Tecsmart.zip"}
+SOURCES = {"AL-TAJ.NET": ROOT / "AL-TAJ.NET.rar.zip", "Tecsmart": ROOT / "Tecsmart.zip", "Rasheed": ROOT / "صفحة رشيد اعتقد بدون اي تعديل.zip"}
 TEXT_EXT = {".html", ".htm", ".css", ".js", ".json", ".xml", ".txt", ".php", ".asp", ".md", ".conf", ".lua"}
 PATTERNS = {
     "MikroTik template variables": r"\$\([^)]+\)",
