@@ -57,16 +57,36 @@ inventory = {}
 for name, archive in SOURCES.items():
     dest = OUT / "extracted" / name
     extract_archive(archive, dest)
-    files = sorted(p for p in dest.rglob("*") if p.is_file())
-    inventory[name] = [{"path": p.relative_to(dest).as_posix(), "size": p.stat().st_size, "sha256": sha(p)} for p in files]
+    all_files = sorted(p for p in dest.rglob("*") if p.is_file())
+    # Compare page contents relative to the actual portal root, not the
+    # archive-specific wrapper directory. This makes equivalent paths match
+    # across archives even when their ZIP layouts differ.
+    index_files = [p for p in all_files if p.name.lower() == "index.html"]
+    if index_files:
+        page_root = max(
+            (p.parent for p in index_files),
+            key=lambda root: sum(1 for item in all_files if item == root or root in item.parents)
+        )
+    else:
+        page_root = dest
+    files = [p for p in all_files if p == page_root or page_root in p.parents]
+    inventory[name] = [
+        {
+            "path": p.relative_to(page_root).as_posix(),
+            "extracted_path": p.relative_to(dest).as_posix(),
+            "size": p.stat().st_size,
+            "sha256": sha(p),
+        }
+        for p in files
+    ]
     report += ["## " + name, "", "- Source archive: " + archive.name,
                "- Source size: " + str(archive.stat().st_size) + " bytes",
                "- Source SHA-256: " + sha(archive),
                "- Extracted file count: " + str(len(files)), "", "### File inventory", ""]
     if not files:
-        report.append("- No files extracted.")
+        report.append("- No page files extracted.")
     for p in files:
-        report.append("- " + p.relative_to(dest).as_posix() + " — " + str(p.stat().st_size) + " bytes")
+        report.append("- " + p.relative_to(page_root).as_posix() + " — " + str(p.stat().st_size) + " bytes")
     report += ["", "### Static code indicators", ""]
     found = {k: [] for k in PATTERNS}
     for p in files:
@@ -79,7 +99,7 @@ for name, archive in SOURCES.items():
         for label, pattern in PATTERNS.items():
             matches = list(dict.fromkeys(re.findall(pattern, content)))
             if matches:
-                found[label].append((p.relative_to(dest).as_posix(), matches[:30]))
+                found[label].append((p.relative_to(page_root).as_posix(), matches[:30]))
     for label, entries in found.items():
         report.append("**" + label + ":**")
         if not entries:
