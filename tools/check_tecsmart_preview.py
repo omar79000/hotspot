@@ -104,7 +104,7 @@ for css_path in (SITE / "css").glob("*.css"):
     if css.count("{") != css.count("}"):
         fail(f"Unbalanced CSS braces: {css_path}")
     for raw in re.findall(r"url\(\s*['\"]?([^'\")]+)", css, flags=re.I):
-        ref = raw.strip()
+        ref = raw.strip().split("?", 1)[0].split("#", 1)[0]
         if not ref or ref.startswith(("data:", "#")) or "://" in ref:
             continue
         target = (css_path.parent / ref).resolve()
