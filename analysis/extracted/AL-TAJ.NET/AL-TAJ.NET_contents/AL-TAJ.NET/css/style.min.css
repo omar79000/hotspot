@@ -1,0 +1,1491 @@
+
+@import url(../fonts/Almarai.css);
+
+/* =========================================================
+   AL-TAJ NET — PREMIUM HOTSPOT DESIGN
+   Burgundy | Ivory | Gold | Black
+   ========================================================= */
+
+/* 01. الألوان والخصائص العامة */
+:root {
+    --brand-burgundy: #641B32;
+    --brand-burgundy-dark: #260B16;
+    --brand-burgundy-light: #843A52;
+    --brand-gold: #D6B36A;
+    --brand-gold-light: #E7CC8C;
+    --brand-white: #FFFDF9;
+    --brand-black: #171316;
+    --brand-surface: #24171D;
+    --brand-muted: #C9BFC3;
+    --brand-border: rgba(214, 179, 106, .32);
+    --brand-shadow: 0 16px 40px rgba(0, 0, 0, .28);
+    --brand-radius: 18px;
+
+    --ad-width: calc(100% - 16px);
+    --ad-max-width: 414px;
+    --ad-ratio: 3 / 2;
+    --ad-margin-top: 16px;
+    --ad-margin-bottom: 18px;
+}
+
+/* 02. الحركات — المحافظة على أسماء الحركات */
+@-webkit-keyframes animRipple {
+    to { transform: scale(3.5); opacity: 0; }
+}
+@keyframes animRipple {
+    to { transform: scale(3.5); opacity: 0; }
+}
+
+@-webkit-keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes animatePath {
+    to { stroke-dashoffset: 0; }
+}
+@keyframes animatePath {
+    to { stroke-dashoffset: 0; }
+}
+
+@-webkit-keyframes marquee {
+    0% { margin-left: 0; transform: translateX(-100%); }
+    to { margin-left: 100%; transform: translateX(100%); }
+}
+@keyframes marquee {
+    0% { margin-left: 0; transform: translateX(-100%); }
+    to { margin-left: 100%; transform: translateX(100%); }
+}
+
+@-webkit-keyframes hotspotSlider {
+    0%, 16% { transform: translateX(0); }
+    20%, 36% { transform: translateX(-20%); }
+    40%, 56% { transform: translateX(-40%); }
+    60%, 76% { transform: translateX(-60%); }
+    80%, 96% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+@keyframes hotspotSlider {
+    0%, 16% { transform: translateX(0); }
+    20%, 36% { transform: translateX(-20%); }
+    40%, 56% { transform: translateX(-40%); }
+    60%, 76% { transform: translateX(-60%); }
+    80%, 96% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+
+/* 03. الأساسيات والخلفية */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: var(--brand-burgundy-dark);
+}
+
+body {
+    margin: 0;
+    padding: 12px 0 20px;
+    min-height: 100vh;
+    direction: rtl;
+    font-family: Almarai, sans-serif;
+    color: var(--brand-white);
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(214, 179, 106, .14),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            #160B10 0%,
+            #35121F 48%,
+            #641B32 100%
+        );
+}
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 32px);
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: Almarai, sans-serif;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 04. إطار الصفحة */
+.screen {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    max-width: 430px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+
+    border: 1px solid var(--brand-border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #28151D 0%,
+            #1B1418 60%,
+            #171316 100%
+        );
+
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, .36),
+        0 0 0 4px rgba(214, 179, 106, .025);
+}
+
+.screen-content,
+#login,
+.app.active,
+.social-login {
+    position: relative;
+    z-index: 1;
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+}
+
+.screen-background,
+.screen-background-shape0,
+.screen-background-shape1,
+.screen-background-shape2,
+.screen-background-shape3,
+.screen-background-shape4,
+.screen-background-shape5,
+.screen-background-shape6,
+.screen-background-shape7,
+.screen-background-shape8 {
+    display: none;
+}
+
+#login {
+    overflow: hidden;
+    padding-bottom: 1px;
+    transition: opacity .1s, transform .3s;
+}
+
+#login::before,
+#login::after {
+    display: none !important;
+}
+
+/* 05. ترويسة الشبكة */
+.hotspot-hero {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    min-height: 150px;
+    padding: 25px 14px 24px;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(214, 179, 106, .16),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #260B16 0%,
+            #641B32 58%,
+            #3B1423 100%
+        );
+
+    border-bottom: 2px solid rgba(214, 179, 106, .72);
+    border-radius: 22px 22px 28px 28px;
+}
+
+.hotspot-hero::before {
+    content: "";
+    display: block;
+    width: 62px;
+    height: 3px;
+    margin: 0 auto 14px;
+    border-radius: 5px;
+    background: var(--brand-gold);
+    box-shadow: 0 0 18px rgba(214, 179, 106, .28);
+}
+
+.hotspot-hero::after {
+    content: "";
+    position: absolute;
+    left: -38px;
+    bottom: -55px;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(214, 179, 106, .13);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hotspot-title {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 8px;
+
+    color: var(--brand-gold-light);
+    font-size: clamp(22px, 6vw, 29px);
+    font-weight: 900;
+    line-height: 1.65;
+    text-align: center;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, .28);
+    overflow-wrap: anywhere;
+}
+
+.network-name,
+.network-prefix {
+    color: var(--brand-white);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.network-name {
+    color: var(--brand-gold);
+    font-size: 20px;
+}
+
+[data-fit-text] {
+    display: inline-block;
+    max-width: 100%;
+    width: 220px;
+}
+
+.logo {
+    width: 80px;
+    left: 90px;
+}
+
+.svg-icon {
+    cursor: pointer;
+}
+
+.svg-icon path {
+    stroke: var(--brand-white);
+    fill: var(--brand-white);
+    stroke-width: 1;
+}
+
+/* 06. منطقة الإعلانات */
+.hotspot-ad-section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    margin: 0;
+    padding: 1px 0;
+
+    background: linear-gradient(
+        180deg,
+        #24171D,
+        #1B1418
+    );
+}
+
+.hotspot-ad-section[style*="visibility: hidden"],
+[data-ads-section][style*="visibility: hidden"] {
+    display: none !important;
+}
+
+.ads {
+    direction: ltr;
+    position: relative;
+    z-index: 6;
+    display: block;
+    width: var(--ad-width);
+    max-width: var(--ad-max-width);
+    aspect-ratio: var(--ad-ratio);
+    height: auto;
+    margin: var(--ad-margin-top) auto var(--ad-margin-bottom);
+    overflow: hidden;
+
+    border: 1px solid rgba(214, 179, 106, .62);
+    outline: none;
+    border-radius: 18px;
+    background: #FFFDF9;
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .24);
+    transform: none;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 500%;
+    height: 100%;
+    text-align: center;
+    transform-style: flat;
+    animation: hotspotSlider 28s ease-in-out infinite;
+}
+
+.box:hover {
+    animation-play-state: paused;
+}
+
+.box span {
+    display: block;
+    position: relative;
+    flex: 0 0 20%;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--brand-white);
+    transform: none;
+    transform-style: flat;
+    -webkit-box-reflect: none;
+}
+
+.box span img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    background: var(--brand-white);
+    transform: none;
+    transition: none;
+}
+
+/* 07. شريط الأخبار */
+.hotspot-news-section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 10px 12px 14px;
+    background: #24171D;
+}
+
+.section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    margin: 0 auto;
+    padding: 0 88px 0 12px;
+    overflow: hidden;
+
+    border: 1px solid rgba(214, 179, 106, .25);
+    border-radius: 12px;
+    background: #1B1418;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .025);
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -35px;
+    width: 110%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(214, 179, 106, .35),
+        transparent
+    );
+}
+
+.section .marquee {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    color: var(--brand-white);
+    font-size: 13px;
+    white-space: nowrap;
+    word-break: keep-all;
+    animation: marquee 15s linear infinite;
+}
+
+.section .marquee:hover {
+    animation-play-state: paused;
+}
+
+.m {
+    position: absolute;
+    z-index: 8;
+    top: -1px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 78px;
+    height: 46px;
+    padding: 0;
+
+    border: 1px solid var(--brand-gold);
+    border-radius: 10px;
+    color: var(--brand-black);
+    font-size: 13px;
+    font-weight: 900;
+    background: linear-gradient(
+        135deg,
+        var(--brand-gold-light),
+        var(--brand-gold)
+    );
+    cursor: pointer;
+}
+
+.m::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 4px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    opacity: .8;
+}
+
+.daim {
+    left: 50%;
+}
+
+/* 08. نموذج تسجيل الدخول */
+.login-form {
+    position: relative;
+    z-index: 4;
+    width: calc(100% - 28px);
+    min-width: 0;
+    margin: 12px auto 18px;
+    padding: 22px 20px 24px;
+    text-align: center;
+
+    border: 1px solid rgba(214, 179, 106, .28);
+    border-radius: 22px;
+
+    background: linear-gradient(
+        160deg,
+        #351722 0%,
+        #24171D 55%,
+        #1B1418 100%
+    );
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, .22),
+        inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+.login-form > p:first-child {
+    margin-bottom: 12px;
+    color: var(--brand-white);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.7;
+}
+
+.login-form > p:first-child::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 3px;
+    margin: 9px auto 0;
+    border-radius: 4px;
+    background: var(--brand-gold);
+}
+
+.login-form p {
+    color: var(--brand-muted);
+}
+
+.login-field {
+    position: relative;
+    padding: 10px 0;
+}
+
+.login-icon {
+    position: absolute;
+    top: 23px;
+    right: 12px;
+    color: var(--brand-burgundy);
+}
+
+.login-input,
+select {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 10px 12px 10px 30px;
+
+    border: 1px solid #E4DDE0;
+    border-radius: 12px;
+
+    text-align: center;
+    color: #292329;
+    background: var(--brand-white);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.login-input {
+    width: 83%;
+}
+
+.login-input:active,
+.login-input:focus,
+.login-input:hover,
+select:focus {
+    outline: none;
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 3px rgba(214, 179, 106, .17);
+}
+
+input::placeholder {
+    color: #81747A;
+    opacity: 1;
+}
+
+#se {
+    width: 15%;
+    margin: 0;
+    background: url(../img/h.svg) center / 100% no-repeat #fff;
+}
+
+select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+option {
+    color: #292329;
+    background: var(--brand-white);
+}
+
+.password-field,
+input[type="checkbox"] {
+    display: none;
+}
+
+label {
+    display: block;
+    user-select: none;
+    padding: 10px 16px;
+    border: 1px solid #3B8A63;
+    border-radius: 10px;
+    color: #286A48;
+    background: #F8FCF9;
+}
+
+label::before {
+    color: #333;
+}
+
+input[type="checkbox"]:not(:checked) + label {
+    color: #A33245;
+    border-color: #A33245;
+    background: #FFF8F8;
+}
+
+input[type="checkbox"]:not(:checked) + label::before {
+    content: '\274C لم يتم ';
+    color: #A33245;
+}
+
+/* 09. الأزرار وحالات المعالجة */
+.app-submit,
+.login-submit {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 49px;
+    margin-top: 12px;
+    padding: 13px 20px;
+
+    border: 1px solid var(--brand-gold);
+    border-radius: 13px;
+
+    background: linear-gradient(
+        135deg,
+        #843A52 0%,
+        #641B32 58%,
+        #481426 100%
+    );
+
+    color: var(--brand-white);
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .20);
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.app-submit::after,
+.login-submit::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+
+    border: 2px dotted var(--brand-gold-light);
+    border-left: none;
+    border-bottom: none;
+    border-radius: 50%;
+
+    opacity: 0;
+    transition: opacity .1s .2s;
+}
+
+.app-submit.processing,
+.login-submit.processing {
+    opacity: .85;
+    border-color: transparent;
+    background: var(--brand-burgundy-dark);
+    font-size: 0 !important;
+}
+
+.app-submit.processing::after,
+.login-submit.processing::after {
+    opacity: 1;
+    animation: rotate .5s .4s infinite linear;
+}
+
+.app-submit.success,
+.login-submit.success {
+    z-index: 2;
+    opacity: 1;
+    transform: scale(100);
+    transition: transform 1s ease-out, opacity .1s .3s, background-color 50ms;
+}
+
+.app-submit.success::after,
+.login-submit.success::after {
+    opacity: 0;
+    animation: none;
+    transition: opacity .1s 0s;
+}
+
+.login-submit.processing i {
+    display: none;
+}
+
+.app-submit:active,
+.app-submit:focus,
+.app-submit:hover,
+.login-submit:active,
+.login-submit:focus,
+.login-submit:hover {
+    outline: 0;
+    border-color: var(--brand-gold-light);
+}
+
+@media (hover: hover) {
+    .app-submit:hover,
+    .login-submit:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 9px 20px rgba(0, 0, 0, .28);
+    }
+}
+
+button span,
+#login .social-login button,
+#login .social-login button span {
+    color: var(--brand-black) !important;
+}
+
+.button-icon {
+    margin-left: auto;
+    color: var(--brand-gold);
+    font-size: 24px;
+}
+
+.extra-submit {
+    width: 80%;
+    height: 44px;
+}
+
+.extra-submit:last-child {
+    right: 20%;
+    margin-top: 10px;
+}
+
+.cut-connection {
+    width: 60px;
+    height: 60px;
+    margin-top: -5px;
+}
+
+/* 10. الشريط السفلي وخدمة العملاء */
+.social-login {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    text-align: center;
+    color: var(--brand-white);
+}
+
+#login .social-login {
+    position: relative;
+    z-index: 6;
+    display: block;
+    min-height: 126px;
+    margin: 0 auto;
+    padding: 18px 16px 16px;
+    overflow: visible;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(214, 179, 106, .10),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #3A1422 0%,
+            #260B16 62%,
+            #171316 100%
+        );
+
+    border-top: 1px solid rgba(214, 179, 106, .45);
+    border-radius: 0 0 22px 22px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.contact {
+    margin-top: 10px;
+    color: var(--brand-gold-light) !important;
+}
+
+.contact.back {
+    margin-top: 65px;
+}
+
+#login .social-login .contact {
+    position: static !important;
+    display: block;
+    margin: 0 auto !important;
+    padding: 0 18px;
+    color: var(--brand-gold-light) !important;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.6;
+    white-space: normal;
+}
+
+.price-icon,
+.sellpoint,
+#login .social-login .price-icon,
+#login .social-login .sellpoint {
+    position: absolute;
+    z-index: 8;
+    bottom: 16px;
+    width: 128px;
+    min-height: 50px;
+    margin: 0;
+    padding: 0 8px;
+
+    border: 1px solid rgba(255, 253, 249, .24);
+    border-radius: 13px;
+
+    color: var(--brand-black) !important;
+    background: linear-gradient(
+        135deg,
+        var(--brand-gold-light),
+        var(--brand-gold)
+    );
+
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 50px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, .18);
+}
+
+#login .social-login .price-icon,
+.price-icon {
+    left: 20px;
+    right: auto;
+}
+
+#login .social-login .sellpoint,
+.sellpoint {
+    right: 20px;
+    left: auto;
+}
+
+.sell-point-icon {
+    margin: 0;
+}
+
+.app-store {
+    position: absolute;
+    margin: auto 50px auto auto;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.social-login-icon {
+    padding: 20px 10px;
+    color: var(--brand-white);
+    text-decoration: none;
+    text-shadow: 0 0 8px rgba(214, 179, 106, .22);
+    transition: transform .2s ease;
+}
+
+.social-login-icon:hover {
+    transform: scale(1.12);
+}
+
+/* 11. صفحات التطبيق بعد الدخول */
+#login.inactive,
+.app {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.app {
+    display: none;
+    height: auto;
+    transition: opacity .1s, transform .3s cubic-bezier(.68, -.45, .465, 1.25);
+    transform: scale(1.2);
+}
+
+#login,
+.app.active {
+    opacity: 1;
+}
+
+.app.active,
+.app.active .app-logout {
+    transform: scale(1);
+}
+
+.app-logout {
+    cursor: pointer;
+    transform: scale(0);
+    transition: transform .4s .2s, opacity .1s .7s, background-color .1s .2s;
+}
+
+.app-logout.back {
+    width: 80px;
+    height: 50px;
+    margin: -15px 45px 0 0;
+    padding: 5px;
+    border: 1px solid var(--brand-gold);
+    border-radius: 10px;
+    background-color: var(--brand-burgundy-dark);
+    color: var(--brand-gold-light);
+}
+
+.app-logout.clicked {
+    opacity: .9;
+    border: 0;
+    background-color: var(--brand-burgundy);
+    font-size: 0;
+    transform: scale(30) !important;
+}
+
+.price-div,
+.sell-point-div,
+.status-div {
+    width: 100%;
+    height: 100%;
+}
+
+div.wrapper,
+.app .wrapper,
+.status-div .wrapper,
+.price-div .wrapper,
+.sell-point-div .wrapper {
+    height: 100vh;
+    overflow: auto;
+    padding: 15px;
+    border: 1px solid var(--brand-border);
+    border-radius: 16px;
+    text-align: center;
+    color: var(--brand-white) !important;
+    background:
+        radial-gradient(
+            circle at 15% 0%,
+            rgba(214, 179, 106, .08),
+            transparent 34%
+        ),
+        linear-gradient(
+            180deg,
+            #351722 0%,
+            #24171D 55%,
+            #171316 100%
+        ) !important;
+    box-shadow: var(--brand-shadow) !important;
+}
+
+.status-div div.wrapper {
+    height: unset;
+}
+
+div.wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+div.wrapper::-webkit-scrollbar-track {
+    background: #24171D;
+}
+
+div.wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--brand-gold);
+    border-radius: 5px;
+}
+
+.title,
+.app .title,
+#status-title {
+    margin: 15px;
+    padding: 12px 10px;
+
+    border: 1px solid var(--brand-border) !important;
+    border-radius: 13px !important;
+
+    background: linear-gradient(
+        135deg,
+        #641B32,
+        #3A1422
+    ) !important;
+
+    color: var(--brand-gold-light) !important;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, .18) !important;
+}
+
+.app p,
+.status-div p,
+.price-div p,
+.sell-point-div p,
+.wrapper p,
+.wrapper h5,
+.wrapper span,
+.pspeed {
+    color: var(--brand-white) !important;
+}
+
+#loan-explain {
+    padding: 25px;
+}
+
+#loan-explain .contact-text {
+    margin-bottom: 10px;
+}
+
+#loan-button {
+    right: 15%;
+    width: 70%;
+}
+
+.grid {
+    float: right;
+    width: 21.9%;
+    height: 72px;
+    margin: 5px;
+    background-position: center;
+    background-size: 70px;
+    background-repeat: no-repeat;
+}
+
+.wspeed {
+    color: var(--brand-gold-light);
+    font-size: 20px;
+}
+
+.tcs,
+#speedchange,
+#updatechange {
+    height: 44px !important;
+    border: 1px solid var(--brand-border) !important;
+    border-radius: 10px !important;
+    background: #351722 !important;
+    color: var(--brand-white) !important;
+}
+
+.a,
+.app a {
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid var(--brand-border) !important;
+    border-radius: 10px;
+    color: var(--brand-gold-light) !important;
+    text-decoration: none;
+}
+
+/* 12. الجداول */
+table,
+.wrapper table,
+.statusdiv {
+    width: 100%;
+    overflow: hidden !important;
+    border: 1px solid var(--brand-border) !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, .025) !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .14) !important;
+    font-size: 14px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 10px 6px;
+}
+
+table td:first-child {
+    font-weight: 700;
+}
+
+tr {
+    background: rgba(100, 27, 50, .30) !important;
+}
+
+td,
+th {
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(214, 179, 106, .17) !important;
+    border-inline: 1px solid rgba(214, 179, 106, .12) !important;
+    background: transparent;
+    color: var(--brand-white) !important;
+    font-size: 12px;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.info,
+tbody td,
+th {
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: rgba(214, 179, 106, .07) !important;
+}
+
+.sell-point td {
+    font-size: 13px;
+}
+
+tbody td:hover:before {
+    content: "";
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    z-index: -1;
+}
+
+table .img {
+    width: 150px;
+    height: 80px;
+}
+
+.statusdiv {
+    margin-bottom: 20px;
+}
+
+/* 13. رسائل الخطأ */
+.error-container {
+    position: fixed;
+    inset: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    overflow-y: auto;
+    background-color: rgba(23, 19, 22, .78);
+    backdrop-filter: blur(5px);
+}
+
+.error-container.active {
+    display: block;
+    z-index: 9998;
+}
+
+.error-container .error .fade-in {
+    padding: 22px;
+    border: 1px solid var(--brand-border);
+    border-radius: 16px;
+    background: linear-gradient(
+        145deg,
+        #351722,
+        #1B1418
+    );
+    box-shadow: var(--brand-shadow);
+    transform: scale(0);
+}
+
+.error-container.zoom .error .fade-in {
+    transform: scale(1);
+    transition: transform .15s ease-out;
+}
+
+.error {
+    position: relative;
+    display: block;
+    width: min(100%, 350px);
+    min-width: 0;
+    margin: 20px auto;
+    color: var(--brand-white);
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* 14. توافق الشاشات */
+@media (max-width: 430px) {
+    .container {
+        padding: 4px;
+    }
+
+    .screen {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    :root {
+        --ad-width: calc(100% - 12px);
+        --ad-margin-top: 14px;
+        --ad-margin-bottom: 16px;
+    }
+
+    .hotspot-hero {
+        min-height: 140px;
+        padding-top: 18px;
+    }
+
+    .hotspot-title {
+        font-size: 23px;
+    }
+
+    .ads {
+        border-radius: 15px;
+    }
+
+    .box span,
+    .box span img {
+        border-radius: 13px;
+    }
+
+    .hotspot-news-section {
+        padding: 8px 9px 12px;
+    }
+
+    .section {
+        height: 40px;
+        line-height: 40px;
+        padding-right: 78px;
+    }
+
+    .section .marquee {
+        height: 40px;
+        line-height: 40px;
+        font-size: 12px;
+    }
+
+    .m {
+        right: 9px;
+        width: 68px;
+        height: 42px;
+        font-size: 12px;
+    }
+
+    .login-form {
+        width: calc(100% - 16px);
+        padding: 18px 14px 22px;
+    }
+
+    .login-form > p:first-child {
+        font-size: 19px;
+    }
+
+    #login .social-login {
+        min-height: 118px;
+        padding-top: 16px;
+    }
+
+    #login .social-login .contact {
+        padding: 0 8px;
+        font-size: 13px;
+    }
+
+    .price-icon,
+    .sellpoint,
+    #login .social-login .price-icon,
+    #login .social-login .sellpoint {
+        bottom: 14px;
+        width: 106px;
+        min-height: 46px;
+        line-height: 46px;
+        font-size: 12px;
+    }
+
+    #login .social-login .price-icon,
+    .price-icon {
+        left: 12px;
+    }
+
+    #login .social-login .sellpoint,
+    .sellpoint {
+        right: 12px;
+    }
+}
+
+@media (max-width: 340px) {
+    :root {
+        --ad-width: calc(100% - 10px);
+        --ad-margin-top: 12px;
+        --ad-margin-bottom: 14px;
+    }
+
+    .hotspot-hero {
+        min-height: 132px;
+        padding-top: 15px;
+    }
+
+    .hotspot-title {
+        font-size: 21px;
+    }
+
+    .hotspot-news-section {
+        padding: 7px 7px 10px;
+    }
+
+    .section {
+        height: 38px;
+        line-height: 38px;
+        padding-right: 70px;
+    }
+
+    .section .marquee {
+        height: 38px;
+        line-height: 38px;
+        font-size: 11px;
+    }
+
+    .m {
+        right: 7px;
+        width: 62px;
+        height: 40px;
+        font-size: 11px;
+    }
+
+    .login-form {
+        padding: 16px 10px 20px;
+    }
+
+    .login-form > p:first-child {
+        font-size: 18px;
+    }
+
+    .login-input,
+    select {
+        height: 43px;
+        font-size: 12px;
+    }
+
+    #login .social-login {
+        min-height: 112px;
+    }
+
+    #login .social-login .contact {
+        font-size: 12px;
+    }
+
+    .price-icon,
+    .sellpoint,
+    #login .social-login .price-icon,
+    #login .social-login .sellpoint {
+        width: 92px;
+        min-height: 44px;
+        line-height: 44px;
+        font-size: 11px;
+    }
+
+    #login .social-login .price-icon,
+    .price-icon {
+        left: 9px;
+    }
+
+    #login .social-login .sellpoint,
+    .sellpoint {
+        right: 9px;
+    }
+}
+
+/* 15. نافذة اختيار السرعة قبل تسجيل الدخول */
+.speed-required-modal[hidden] {
+    display: none !important;
+}
+
+.speed-required-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(23, 19, 22, .78);
+    backdrop-filter: blur(7px);
+}
+
+.speed-required-box {
+    position: relative;
+    width: min(92vw, 390px);
+    padding: 24px 18px 18px;
+
+    border: 1px solid rgba(214, 179, 106, .48);
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(214, 179, 106, .12),
+            transparent 40%
+        ),
+        linear-gradient(
+            160deg,
+            #351722,
+            #1B1418
+        );
+
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .40);
+    text-align: center;
+}
+
+.speed-required-box h2 {
+    margin: 0 0 10px;
+    color: var(--brand-gold-light);
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.speed-required-box p {
+    margin: 0 0 16px;
+    color: var(--brand-white);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+
+.speed-choice-item,
+.speed-required-cancel,
+.speed-required-close {
+    cursor: pointer;
+    font-family: Almarai, sans-serif;
+}
+
+.speed-choice-item {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+
+    border: 1px solid var(--brand-gold);
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #843A52,
+        #641B32
+    );
+
+    color: var(--brand-white) !important;
+    font-size: 15px;
+    font-weight: 900;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.speed-choice-item:active,
+.speed-choice-item:focus,
+.speed-choice-item:hover {
+    outline: 0;
+    transform: translateY(-1px);
+    box-shadow: 0 9px 20px rgba(0, 0, 0, .25);
+}
+
+.speed-required-cancel {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 12px;
+    border: 1px solid rgba(214, 179, 106, .35);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, .04);
+    color: var(--brand-white);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.speed-required-close {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(214, 179, 106, .35);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .05);
+    color: var(--brand-gold-light);
+    font-size: 23px;
+    line-height: 28px;
+}
+
+body.speed-modal-open {
+    overflow: hidden;
+}
+
+/* 16. احترام إعدادات تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    .social-login-icon,
+    .app-submit,
+    .login-submit,
+    .speed-choice-item {
+        transition: none;
+    }
+}

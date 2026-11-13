@@ -1,0 +1,1048 @@
+/* =========================================
+   TEC SMART NETWORK
+   Brand Identity & Design Tokens
+   ========================================= */
+
+:root {
+    /* Primary Brand Colors */
+    --brand-burgundy: #641B32;
+    --brand-burgundy-dark: #260B16;
+
+    /* Accent Color */
+    --brand-gold: #D6B36A;
+
+    /* Neutral Colors */
+    --brand-white: #FFFDF9;
+    --brand-black: #171316;
+
+    /* Supporting Colors */
+    --brand-text: #292329;
+    --brand-muted: #777078;
+    --brand-border: #E9E1E4;
+    --brand-surface: #FFFFFF;
+
+    /* Design Properties */
+    --brand-radius-sm: 8px;
+    --brand-radius-md: 16px;
+    --brand-radius-lg: 24px;
+
+    --brand-shadow:
+        0 12px 35px rgba(38, 11, 22, 0.10);
+
+    --brand-transition:
+        0.25s ease;
+}
+
+/* =========================================
+   01. GLOBAL LAYOUT
+   الخلفية والهيكل العام
+   ========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background-color: var(--brand-burgundy-dark);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 22px 12px 30px;
+    direction: rtl;
+    color: var(--brand-white);
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(214, 179, 106, 0.16),
+            transparent 48%
+        ),
+        radial-gradient(
+            ellipse at 0% 100%,
+            rgba(100, 27, 50, 0.45),
+            transparent 48%
+        ),
+        linear-gradient(
+            145deg,
+            #180910 0%,
+            #35101E 48%,
+            #641B32 100%
+        );
+}
+
+/* الحاوية العامة */
+
+.container {
+    width: 100%;
+    min-height: calc(100vh - 52px);
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* البطاقة الرئيسية */
+
+.screen {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    max-width: 470px;
+    min-width: 0;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(214, 179, 106, 0.38);
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(48, 16, 29, 0.98),
+            rgba(25, 15, 20, 0.99)
+        );
+
+    box-shadow:
+        0 28px 75px rgba(0, 0, 0, 0.40),
+        0 0 0 5px rgba(214, 179, 106, 0.025);
+}
+
+/* محتوى البطاقة */
+
+.screen-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: auto;
+
+    padding: 0 22px 24px;
+}
+
+/* خلفية الأشكال الزخرفية */
+
+.screen-background {
+    z-index: 0;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.screen-background span {
+    background-color: var(--brand-gold) !important;
+}
+
+.screen-background-shape3 svg path {
+    fill: var(--brand-gold) !important;
+}
+
+/* =========================================
+   02. NETWORK BRANDING
+   عنوان وهوية الشبكة
+   ========================================= */
+
+#login {
+    padding-top: 25px;
+}
+
+.hotspot-hero {
+    position: relative;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 5px 0 20px;
+
+    text-align: center;
+}
+
+.hotspot-title {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 auto;
+    padding: 0 5px 13px;
+
+    color: var(--brand-gold);
+
+    font-size: clamp(23px, 5vw, 30px);
+    font-weight: 800;
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
+    text-align: center;
+    letter-spacing: 0.1px;
+}
+
+/* الخط الذهبي أسفل اسم الشبكة */
+
+.hotspot-title::after {
+    content: "";
+
+    display: block;
+
+    width: 76px;
+    height: 3px;
+
+    margin: 10px auto 0;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--brand-gold),
+            transparent
+        );
+}
+
+/* =========================================
+   03. ADVERTISEMENT AREA
+   مساحة إعلانات الشبكة
+   ========================================= */
+
+.hotspot-ad-section {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0 auto 16px;
+}
+
+.ads {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(214, 179, 106, 0.32);
+    border-radius: 17px;
+
+    background: var(--brand-black);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.ads .box {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* منع الصور من تجاوز مساحة الإعلان */
+
+.ads img {
+    max-width: 100%;
+}
+
+/* تحسين شكل الصور عندما تكون عناصر العرض صورًا مباشرة */
+
+.ads .box img {
+    border-radius: 0;
+}
+
+/* =========================================
+   04. NEWS BAR
+   شريط أخبار الشبكة
+   ========================================= */
+
+.hotspot-news-section {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 12px 0 19px;
+    padding: 10px 12px;
+
+    border: 1px solid rgba(214, 179, 106, 0.22);
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+/* زر جديدنا */
+
+.hotspot-news-section .m {
+    flex: 0 0 auto;
+
+    min-height: 35px;
+
+    margin: 0;
+    padding: 7px 12px;
+
+    border: 1px solid var(--brand-gold);
+    border-radius: 9px;
+
+    background: var(--brand-gold);
+    color: var(--brand-black);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        filter var(--brand-transition),
+        transform var(--brand-transition);
+}
+
+.hotspot-news-section .m:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+}
+
+/* الحاوية التي تحتوي على الخبر */
+
+.hotspot-news-section .section {
+    flex: 1 1 auto;
+
+    width: 0;
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+/* نص الخبر */
+
+.hotspot-news-section .marquee {
+    margin: 0;
+
+    color: var(--brand-white);
+
+    font-size: 12px;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   05. RESPONSIVE LAYOUT
+   تحسين العرض على الهواتف
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px 6px 18px;
+    }
+
+    .container {
+        min-height: calc(100vh - 28px);
+        padding: 4px;
+    }
+
+    .screen {
+        border-radius: 20px;
+    }
+
+    .screen-content {
+        padding: 0 13px 18px;
+    }
+
+    #login {
+        padding-top: 19px;
+    }
+
+    .hotspot-hero {
+        padding-bottom: 15px;
+    }
+
+    .hotspot-title {
+        font-size: clamp(21px, 6vw, 27px);
+    }
+
+    .hotspot-ad-section {
+        margin-bottom: 13px;
+    }
+
+    .hotspot-news-section {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .hotspot-news-section .m {
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .hotspot-news-section .marquee {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hotspot-news-section .m {
+        transition: none;
+    }
+}
+
+/* =====================================================
+   AL-TAJ NET — BRAND OVERRIDES
+   توحيد الهوية البصرية فوق التنسيقات الأصلية
+   ===================================================== */
+
+/* 1. الترويسة واسم الشبكة */
+#login .hotspot-hero {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(214, 179, 106, 0.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #260B16 0%,
+            #641B32 60%,
+            #3A1020 100%
+        );
+
+    border-bottom: 2px solid rgba(214, 179, 106, 0.75);
+    box-shadow: inset 0 -1px 0 rgba(255, 253, 249, 0.04);
+}
+
+/* 2. بطاقة تسجيل الدخول */
+#login .login-form {
+    background:
+        linear-gradient(
+            160deg,
+            #35121F 0%,
+            #211419 58%,
+            #171316 100%
+        );
+
+    border: 1px solid rgba(214, 179, 106, 0.34);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 253, 249, 0.06);
+}
+
+/* 3. شريط الأخبار */
+#login .hotspot-news-section {
+    background: #260B16;
+    border-top: 1px solid rgba(214, 179, 106, 0.22);
+    border-bottom: 1px solid rgba(214, 179, 106, 0.22);
+}
+
+/* نص الخبر */
+#login .hotspot-news-section .marquee {
+    color: #FFFDF9;
+}
+
+/* 4. زر جديدنا */
+#login .hotspot-news-section .m {
+    color: #171316;
+    background: linear-gradient(
+        135deg,
+        #E7CC8C,
+        #D6B36A
+    );
+
+    border: 1px solid rgba(255, 253, 249, 0.28);
+    border-radius: 10px;
+}
+
+/* 5. الشريط السفلي */
+#login .social-login {
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(214, 179, 106, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #3A1422 0%,
+            #260B16 65%,
+            #171316 100%
+        );
+
+    border-top: 1px solid rgba(214, 179, 106, 0.48);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 253, 249, 0.035);
+}
+
+/* 6. زر تسجيل الدخول */
+#login .login-form .login-submit {
+    color: #FFFDF9;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7B2946 0%,
+            #641B32 55%,
+            #481426 100%
+        );
+
+    border: 1px solid #D6B36A;
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 253, 249, 0.12);
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* تأثير المرور على الزر */
+@media (hover: hover) {
+    #login .login-form .login-submit:hover {
+        background: linear-gradient(
+            135deg,
+            #8B3452,
+            #641B32
+        );
+
+        box-shadow:
+            0 7px 18px rgba(0, 0, 0, 0.28),
+            0 0 0 2px rgba(214, 179, 106, 0.10);
+
+        transform: translateY(-1px);
+    }
+}
+
+/* 7. زر نقاط البيع */
+#login .social-login .sellpoint {
+    color: #171316 !important;
+
+    background: linear-gradient(
+        135deg,
+        #E7CC8C,
+        #D6B36A
+    );
+
+    border: 1px solid rgba(255, 253, 249, 0.35);
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* 8. زر أسعار الكروت */
+#login .social-login .price-icon {
+    color: #FFFDF9;
+
+    background: linear-gradient(
+        135deg,
+        #641B32,
+        #3A1020
+    );
+
+    border: 1px solid rgba(214, 179, 106, 0.75);
+    border-radius: 13px;
+}
+
+/* 9. نصوص خدمة العملاء */
+#login .social-login .contact {
+    color: #E7CC8C !important;
+}
+
+/* 10. توافق الشريط السفلي مع الهاتف */
+@media (max-width: 480px) {
+    #login .login-form {
+        width: calc(100% - 12px);
+        padding: 18px 14px 22px;
+        border-radius: 22px 22px 16px 16px;
+    }
+
+    #login .hotspot-hero {
+        border-radius: 20px 20px 28px 28px;
+    }
+
+    #login .social-login {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.hotspot-hero::before {
+    content: "";
+    display: block;
+    width: 74px;
+    height: 24px;
+    margin: 0 auto 8px;
+    border-top: 7px solid #E7CC8C;
+    border-radius: 70px 70px 0 0;
+    box-shadow: 0 -10px 0 -4px #E7CC8C;
+    opacity: .95;
+}
+
+.hotspot-hero::after {
+    content: "";
+    position: absolute;
+    top: 68px;
+    right: -18px;
+    width: 150px;
+    height: 52px;
+    border-bottom: 8px solid #FFFDF9;
+    border-radius: 0 0 0 90px;
+    transform: rotate(-18deg);
+    opacity: .8;
+}
+
+.section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    margin: 0 auto;
+    padding: 0 82px 0 12px;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid #E7CC8C;
+    background: linear-gradient(90deg, #641B32, #3A1020);
+    box-shadow: 0 10px 24px #641B32;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -35px;
+    width: 110%;
+    height: 3px;
+    background: linear-gradient(50deg, transparent, #FFFDF9, transparent);
+    opacity: .10;
+}
+
+button span,
+#login .social-login button,
+#login .social-login button span {
+    color: #FFFDF9 !important;
+}
+
+
+/* =====================================================
+   TEC SMART NETWORK
+   FINAL DESIGN REFINEMENT
+   Burgundy | Gold | Ivory | Black
+   ===================================================== */
+
+/* 1. الترويسة: زخرفة ذهبية أنيقة دون ازدحام */
+#login .hotspot-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 22px 14px 24px;
+
+    background:
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(231, 204, 140, .16),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #260B16 0%,
+            #641B32 54%,
+            #35121F 100%
+        );
+
+    border-bottom: 2px solid #D6B36A;
+    box-shadow: inset 0 -1px 0 rgba(255, 253, 249, .08);
+}
+
+/* استبدال الزخارف السابقة المتعارضة بزخرفة هادئة */
+#login .hotspot-hero::before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 62px;
+    height: 3px;
+    margin: 0 auto 14px;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #E7CC8C,
+        #D6B36A,
+        transparent
+    );
+    box-shadow: 0 0 18px rgba(214, 179, 106, .2);
+    opacity: 1;
+}
+
+#login .hotspot-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: auto;
+    right: -48px;
+    bottom: -70px;
+    width: 170px;
+    height: 170px;
+    border: 1px solid rgba(231, 204, 140, .14);
+    border-radius: 50%;
+    background: transparent;
+    box-shadow:
+        0 0 0 16px rgba(231, 204, 140, .025),
+        0 0 0 34px rgba(231, 204, 140, .018);
+    transform: none;
+    opacity: 1;
+    pointer-events: none;
+}
+
+#login .hotspot-title {
+    position: relative;
+    z-index: 1;
+    color: #E7CC8C;
+    font-weight: 900;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, .28);
+}
+
+/* 2. بطاقة تسجيل الدخول */
+#login .login-form {
+    position: relative;
+    margin-top: 14px;
+    padding: 23px 20px 24px;
+    border: 1px solid rgba(214, 179, 106, .3);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(214, 179, 106, .07),
+            transparent 45%
+        ),
+        linear-gradient(
+            160deg,
+            #351722 0%,
+            #24171D 58%,
+            #1B1418 100%
+        );
+
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, .23),
+        inset 0 1px 0 rgba(255, 253, 249, .055);
+}
+
+/* 3. حقول الإدخال: واضحة ومريحة للعين */
+#login .login-form .login-input,
+#login .login-form select {
+    min-height: 49px;
+    border: 1px solid #DCD2D6;
+    border-radius: 12px;
+    background-color: #FFFDF9;
+    color: #292329;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .06);
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+#login .login-form .login-input:focus,
+#login .login-form select:focus {
+    outline: none;
+    border-color: #D6B36A;
+    box-shadow: 0 0 0 3px rgba(214, 179, 106, .19);
+}
+
+#login .login-form .login-input::placeholder {
+    color: #82757B;
+    opacity: 1;
+}
+
+/* 4. زر تسجيل الدخول: العنصر الأهم في البطاقة */
+#login .login-form .login-submit {
+    min-height: 51px;
+    margin-top: 15px;
+    border: 1px solid #E7CC8C;
+    border-radius: 13px;
+
+    background: linear-gradient(
+        110deg,
+        #843A52 0%,
+        #641B32 52%,
+        #481426 100%
+    );
+
+    color: #FFFDF9;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .15px;
+
+    box-shadow:
+        0 7px 17px rgba(0, 0, 0, .22),
+        inset 0 1px 0 rgba(255, 255, 255, .1);
+}
+
+@media (hover: hover) {
+    #login .login-form .login-submit:hover {
+        filter: brightness(1.08);
+        box-shadow:
+            0 10px 22px rgba(0, 0, 0, .27),
+            0 0 0 2px rgba(214, 179, 106, .10);
+    }
+}
+
+/* 5. شريط الأخبار: إصلاح التداخل بين قواعد section */
+#login .hotspot-news-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    margin: 12px 0 18px;
+    padding: 10px 11px;
+
+    border: 1px solid rgba(214, 179, 106, .22);
+    border-radius: 14px;
+    background: linear-gradient(
+        135deg,
+        rgba(100, 27, 50, .22),
+        rgba(23, 19, 22, .35)
+    );
+}
+
+#login .hotspot-news-section .section {
+    position: relative;
+    flex: 1 1 auto;
+    width: 0;
+    min-width: 0;
+    height: 42px;
+    margin: 0;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid rgba(214, 179, 106, .25);
+    border-radius: 10px;
+    background: #211419;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+    line-height: 42px;
+}
+
+#login .hotspot-news-section .section::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(231, 204, 140, .15),
+        transparent
+    );
+    pointer-events: none;
+}
+
+#login .hotspot-news-section .marquee {
+    position: relative;
+    z-index: 1;
+    color: #FFFDF9;
+    font-size: 12px;
+    line-height: 42px;
+}
+
+#login .hotspot-news-section .m {
+    position: relative;
+    inset: auto;
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 0 13px;
+    border: 1px solid #E7CC8C;
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        #E7CC8C,
+        #D6B36A
+    );
+    color: #171316;
+    font-size: 12px;
+    font-weight: 900;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .12);
+}
+
+/* 6. مساحة الإعلانات */
+#login .hotspot-ad-section {
+    width: 100%;
+    margin: 0 auto 16px;
+}
+
+#login .ads {
+    border: 1px solid rgba(214, 179, 106, .45);
+    border-radius: 16px;
+    background: #171316;
+    box-shadow: 0 9px 22px rgba(0, 0, 0, .18);
+}
+
+#login .ads img,
+#login .ads .box img {
+    max-width: 100%;
+    border-radius: 0;
+}
+
+/* 7. الشريط السفلي */
+#login .social-login {
+    position: relative;
+    min-height: 126px;
+    padding: 20px 14px 17px;
+    border-top: 1px solid rgba(214, 179, 106, .48);
+    border-radius: 0 0 22px 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(214, 179, 106, .11),
+            transparent 44%
+        ),
+        linear-gradient(
+            180deg,
+            #3A1422,
+            #260B16 67%,
+            #171316
+        );
+
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035);
+}
+
+#login .social-login .contact {
+    color: #E7CC8C !important;
+    font-weight: 800;
+    line-height: 1.8;
+}
+
+/* 8. أزرار أسعار الكروت ونقاط البيع */
+#login .social-login .price-icon,
+#login .social-login .sellpoint {
+    min-height: 48px;
+    border: 1px solid rgba(255, 253, 249, .32);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 900;
+    box-shadow: 0 5px 13px rgba(0, 0, 0, .2);
+    transition: filter .2s ease, transform .2s ease;
+}
+
+#login .social-login .price-icon {
+    color: #FFFDF9 !important;
+    background: linear-gradient(
+        135deg,
+        #641B32,
+        #3A1020
+    );
+    border-color: #D6B36A;
+}
+
+#login .social-login .sellpoint {
+    color: #171316 !important;
+    background: linear-gradient(
+        135deg,
+        #E7CC8C,
+        #D6B36A
+    );
+}
+
+@media (hover: hover) {
+    #login .social-login .price-icon:hover,
+    #login .social-login .sellpoint:hover {
+        filter: brightness(1.07);
+        transform: translateY(-1px);
+    }
+}
+
+/* 9. الحفاظ على مظهر صفحات الحالة والأسعار */
+.app .title,
+#status-title,
+.status-div .title,
+.price-div .title,
+.sell-point-div .title {
+    border-color: rgba(214, 179, 106, .38) !important;
+    border-radius: 13px !important;
+    color: #E7CC8C !important;
+    background: linear-gradient(
+        135deg,
+        #641B32,
+        #35121F
+    ) !important;
+}
+
+.app input,
+.app select,
+.app button,
+.status-div button,
+.price-div button,
+.sell-point-div button {
+    max-width: 100%;
+}
+
+/* 10. التوافق مع الهواتف */
+@media (max-width: 480px) {
+    #login .hotspot-hero {
+        padding: 19px 12px 20px;
+    }
+
+    #login .login-form {
+        width: calc(100% - 16px);
+        padding: 19px 14px 21px;
+        border-radius: 20px;
+    }
+
+    #login .hotspot-news-section {
+        gap: 7px;
+        padding: 8px;
+    }
+
+    #login .hotspot-news-section .m {
+        padding: 0 9px;
+        font-size: 11px;
+    }
+
+    #login .hotspot-news-section .section,
+    #login .hotspot-news-section .marquee {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    #login .social-login {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+/* 11. احترام إعدادات تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+    #login .login-form .login-submit,
+    #login .social-login .price-icon,
+    #login .social-login .sellpoint,
+    #login .hotspot-news-section .m {
+        transition: none;
+    }
+}
+
+option {
+    color: #292329;
+    background: var(--brand-white);
+}
+
+.speed-required-options {
+    display: grid;
+    gap: 10px;
+}
+
+

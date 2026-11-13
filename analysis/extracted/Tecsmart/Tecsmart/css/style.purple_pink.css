@@ -1,0 +1,1237 @@
+@import url(../fonts/Almarai.css);
+
+/* نسخة ألوان: بنفسجي مع لمسة وردية - إعلاني وناعم مع تباين واضح */
+
+/* =========================================================
+   01) الحركات العامة
+   ========================================================= */
+@-webkit-keyframes animRipple { to { transform: scale(3.5); opacity: 0; } }
+@keyframes animRipple { to { transform: scale(3.5); opacity: 0; } }
+
+@-webkit-keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+@-webkit-keyframes animatePath { to { stroke-dashoffset: 0; } }
+@keyframes animatePath { to { stroke-dashoffset: 0; } }
+
+@-webkit-keyframes marquee {
+    0% { margin-left: 0; transform: translateX(-100%); }
+    to { margin-left: 100%; transform: translateX(0); }
+}
+@keyframes marquee {
+    0% { margin-left: 0; transform: translateX(-100%); }
+    to { margin-left: 100%; transform: translateX(100%); }
+}
+
+@-webkit-keyframes hotspotSlider {
+    0%, 16% { transform: translateX(0); }
+    20%, 36% { transform: translateX(-20%); }
+    40%, 56% { transform: translateX(-40%); }
+    60%, 76% { transform: translateX(-60%); }
+    80%, 96% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+@keyframes hotspotSlider {
+    0%, 16% { transform: translateX(0); }
+    20%, 36% { transform: translateX(-20%); }
+    40%, 56% { transform: translateX(-40%); }
+    60%, 76% { transform: translateX(-60%); }
+    80%, 96% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+
+/* =========================================================
+   02) الأساسيات والخلفية العامة
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: Almarai, sans-serif;
+}
+
+body {
+    direction: rtl;
+    padding-top: 5px;
+    min-height: 100vh;
+    background: #300b2f;
+    background: linear-gradient(45deg, #1c0617 0%, #6b1d63 48%, #e45cc7 100%);
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    min-height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+/* =========================================================
+   03) إطار الصفحة والخلفيات الداخلية
+   ========================================================= */
+.screen {
+    position: relative;
+    width: 100%;
+    min-width: 300px;
+    max-width: 430px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid #f9a8d4;
+    background: linear-gradient(180deg, #300b2f 0%, #8b2b83 48%, #c936aa 100%);
+    box-shadow: 0 16px 32px rgba(28, 6, 23, .32);
+}
+
+.screen-content,
+#login,
+.app.active,
+.social-login {
+    position: relative;
+    z-index: 1;
+}
+
+.screen-content { height: 100%; }
+
+.screen-background,
+.screen-background-shape0,
+.screen-background-shape1,
+.screen-background-shape2,
+.screen-background-shape3,
+.screen-background-shape4,
+.screen-background-shape5,
+.screen-background-shape6,
+.screen-background-shape7,
+.screen-background-shape8 {
+    display: none;
+}
+
+#login {
+    overflow: hidden;
+    padding-bottom: 1px;
+    transition: opacity .1s, transform .3s;
+}
+
+#login::before,
+#login::after {
+    display: none !important;
+}
+
+
+/* =========================================================
+   04) قسم عنوان الشبكة - مستقل عن الإعلان
+   ========================================================= */
+:root {
+    --ad-width: calc(100% - 16px);
+    --ad-max-width: 414px;
+    --ad-ratio: 3 / 2;
+    --ad-margin-top: 16px;
+    --ad-margin-bottom: 18px;
+}
+
+.hotspot-hero {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    min-height: 170px;
+    padding: 18px 12px 20px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 16%, rgba(255, 255, 255, .15) 0 2px, transparent 3px) 0 0 / 18px 18px,
+        linear-gradient(135deg, #451044 0%, #db4db8 100%);
+    border-bottom: 3px solid rgba(249, 168, 212, .88);
+    border-radius: 22px 22px 34% 16% / 22px 22px 24% 10%;
+}
+
+.hotspot-hero::before {
+    content: "";
+    display: block;
+    width: 74px;
+    height: 24px;
+    margin: 0 auto 8px;
+    border-top: 7px solid #fbcfe8;
+    border-radius: 70px 70px 0 0;
+    box-shadow: 0 -10px 0 -4px #fbcfe8;
+    opacity: .95;
+}
+
+.hotspot-hero::after {
+    content: "";
+    position: absolute;
+    top: 68px;
+    right: -18px;
+    width: 150px;
+    height: 52px;
+    border-bottom: 8px solid rgba(103, 214, 255, .9);
+    border-radius: 0 0 0 90px;
+    transform: rotate(-18deg);
+    opacity: .8;
+}
+
+.hotspot-title {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.3;
+    text-align: center;
+    text-shadow: 0 4px 12px rgba(28, 6, 23, .4);
+    word-break: keep-all;
+}
+
+/* =========================================================
+   05) قسم الإعلان - مستقل بالكامل
+   ========================================================= */
+.hotspot-ad-section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 0 0 1px;
+    margin: 0;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.98) 78%, #fff7fb 100%);
+}
+
+/* إخفاء قسم الإعلان من config.js بدون ترك مساحة فارغة */
+.hotspot-ad-section[style*="visibility: hidden"],
+[data-ads-section][style*="visibility: hidden"] {
+    display: none !important;
+}
+
+.ads {
+    direction: ltr;
+    position: relative;
+    z-index: 6;
+    display: block;
+    width: var(--ad-width);
+    max-width: var(--ad-max-width);
+    aspect-ratio: var(--ad-ratio);
+    height: auto;
+    margin: var(--ad-margin-top) auto var(--ad-margin-bottom);
+    overflow: hidden;
+    border: 5px solid #fff;
+    outline: 2px solid rgba(249, 168, 212, .95);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 15px 30px rgba(48, 11, 47, .28), 0 2px 0 rgba(255, 255, 255, .9) inset;
+    transform: none;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 500%;
+    height: 100%;
+    text-align: center;
+    transform-style: flat;
+    animation: hotspotSlider 28s ease-in-out infinite;
+}
+
+.box:hover { animation-play-state: paused; }
+
+.box span {
+    display: block;
+    position: relative;
+    flex: 0 0 20%;
+    width: 20%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 19px;
+    background: #fff;
+    transform: none;
+    transform-style: flat;
+    -webkit-box-reflect: none;
+}
+
+.box span img {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 19px;
+    background: #fff;
+    transform: none;
+    transition: none;
+}
+
+/* =========================================================
+   06) قسم الشريط المتحرك وزر جديدنا
+   ========================================================= */
+.hotspot-news-section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 0 13px 12px;
+    background: #fff7fb;
+}
+
+.section {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    margin: 0 auto;
+    padding: 0 82px 0 12px;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(249, 168, 212, .82);
+    background: linear-gradient(90deg, rgba(4, 57, 108, .96), rgba(219, 77, 184, .92));
+    box-shadow: 0 10px 24px rgba(48, 11, 47, .24);
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -35px;
+    width: 110%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(249, 168, 212, .9), transparent);
+    opacity: .7;
+}
+
+.section .marquee {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    color: #fff0f8;
+    font-size: 14px;
+    white-space: nowrap;
+    word-break: keep-all;
+    animation: marquee 15s linear infinite;
+}
+
+.section .marquee:hover { animation-play-state: paused; }
+
+.m {
+    position: absolute;
+    z-index: 8;
+    top: -2px;
+    right: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 78px;
+    height: 46px;
+    padding: 0;
+    border-radius: 16px 0 0 16px;
+    border: 4px solid #f9a8d4;
+    border-right: 0;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    background: linear-gradient(45deg, #8b2b83, #f472d0);
+    box-shadow: 0 8px 18px rgba(48, 11, 47, .3);
+}
+
+.m::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-left: 3px;
+    vertical-align: middle;
+    background:
+        radial-gradient(circle at 32% 50%, #fff 0 5px, transparent 6px),
+        conic-gradient(from 310deg, transparent 0 70deg, #fff 71deg 113deg, transparent 114deg 360deg);
+    opacity: .9;
+}
+
+.daim { left: 50%; }
+
+/* =========================================================
+   05) عناصر الشعار واسم الشبكة القديمة إن وجدت
+   ========================================================= */
+.network-name,
+.network-prefix {
+    color: #300b2f;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.network-name {
+    font-size: 20px;
+    color: #b8329b;
+}
+
+[data-fit-text] {
+    display: inline-block;
+    width: 220px;
+}
+
+.logo {
+    width: 80px;
+    left: 90px;
+}
+
+.svg-icon { cursor: pointer; }
+
+.svg-icon path {
+    stroke: rgba(255, 255, 255, .9);
+    fill: rgba(255, 255, 255, .9);
+    stroke-width: 1;
+}
+
+/* =========================================================
+   06) نموذج الدخول والحقول
+   ========================================================= */
+.login-form {
+    position: relative;
+    z-index: 4;
+    width: calc(100% - 36px);
+    margin: 10px auto 18px;
+    padding: 20px 22px 24px;
+    text-align: center;
+    border-radius: 30px 30px 18px 18px;
+    background: linear-gradient(180deg, rgba(5, 62, 116, .97), rgba(3, 26, 52, .98));
+    border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow: 0 -10px 26px rgba(48, 11, 47, .22), inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+
+.login-form > p:first-child {
+    margin-bottom: 8px;
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.55;
+}
+
+.login-form > p:first-child::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 7px auto 0;
+    border-radius: 4px;
+    background: #fbcfe8;
+}
+
+.login-form p { color: #fff0f8; }
+
+.login-field {
+    position: relative;
+    padding: 12px 0;
+}
+
+.login-icon {
+    position: absolute;
+    top: 24px;
+    right: 10px;
+    color: #300b2f;
+}
+
+.login-input,
+select {
+    width: 100%;
+    height: 44px;
+    padding: 10px 10px 10px 24px;
+    border: 1px solid #f9a8d4;
+    border-radius: 10px;
+    text-align: center;
+    color: #300b2f;
+    background: #fff7fb;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.login-input { width: 83%; }
+
+.login-input:active,
+.login-input:focus,
+.login-input:hover,
+select:focus {
+    outline: none;
+    border-color: #f472d0;
+    box-shadow: 0 0 0 2px rgba(244, 114, 208, .14);
+}
+
+input::placeholder { color: rgba(3, 65, 125, .58); }
+
+#se {
+    width: 15%;
+    margin: 0;
+    background: url(../img/h.svg) center / 100% no-repeat #fff;
+}
+
+select {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+option {
+    color: #300b2f;
+    background: #fff7fb;
+}
+
+.password-field,
+input[type="checkbox"] { display: none; }
+
+label {
+    display: block;
+    user-select: none;
+    padding: 10px 20px;
+    border: 2px solid #18a957;
+    border-radius: 10px;
+    color: #18a957;
+    background: rgba(255, 255, 255, .92);
+}
+
+label::before { color: #333; }
+
+input[type="checkbox"]:not(:checked) + label {
+    color: #e11d48;
+    border-color: #e11d48;
+}
+
+input[type="checkbox"]:not(:checked) + label::before {
+    content: '\274C لن يتم ';
+    color: #e11d48;
+}
+
+/* =========================================================
+   07) الأزرار وحالات المعالجة
+   ========================================================= */
+.app-submit,
+.login-submit {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 48px;
+    margin-top: 10px;
+    padding: 13px 20px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fdf2f8, #f9a8d4, #ec6fd2);
+    color: #300b2f;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .3s .1s ease-out, opacity .1s .3s, background-color .1s 1s;
+}
+
+.app-submit:after,
+.login-submit:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    margin-left: -1.3rem;
+    margin-top: -1.2rem;
+    border: 2px dotted #fff;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .1s .2s;
+}
+
+.app-submit.processing,
+.login-submit.processing {
+    opacity: .8;
+    border: 0;
+    background-color: #300b2f;
+    font-size: 0 !important;
+}
+
+.app-submit.processing:after,
+.login-submit.processing:after {
+    opacity: 1;
+    animation: rotate .5s .4s infinite linear;
+}
+
+.app-submit.success,
+.login-submit.success {
+    z-index: 2;
+    opacity: 1;
+    transform: scale(100);
+    transition: transform 1s ease-out, opacity .1s .3s, background-color 50ms;
+}
+
+.app-submit.success:after,
+.login-submit.success:after {
+    opacity: 0;
+    animation: none;
+    transition: opacity .1s 0s;
+}
+
+.login-submit.processing i { display: none; }
+
+.app-submit:active,
+.app-submit:focus,
+.app-submit:hover,
+.login-submit:active,
+.login-submit:focus,
+.login-submit:hover {
+    outline: 0;
+    border-color: #f9a8d4;
+}
+
+button span,
+#login .social-login button,
+#login .social-login button span {
+    color: #300b2f !important;
+}
+
+.button-icon {
+    margin-left: auto;
+    color: #300b2f;
+    font-size: 24px;
+}
+
+.extra-submit {
+    width: 80%;
+    height: 44px;
+}
+
+.extra-submit:last-child {
+    right: 20%;
+    margin-top: 10px;
+}
+
+.cut-connection {
+    width: 60px;
+    height: 60px;
+    margin-top: -5px;
+}
+
+/* =========================================================
+   08) منطقة الأسفل: الأسعار، نقاط البيع، وخدمة العملاء
+   ========================================================= */
+.social-login {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+#login .social-login {
+    z-index: 6;
+    display: block;
+    min-height: 126px;
+    margin: 0 auto;
+    padding: 18px 16px 16px;
+    overflow: visible;
+    background:
+        radial-gradient(circle at 50% 0, rgba(244, 114, 208, .22), transparent 38%),
+        linear-gradient(180deg, #8b2b83 0%, #5a194f 55%, #300b2f 100%);
+    border-top: 1px solid rgba(249, 168, 212, .72);
+    border-radius: 0 0 22px 22px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 -10px 22px rgba(48, 11, 47, .12);
+}
+
+.contact {
+    margin-top: 10px;
+    color: #fff0f8 !important;
+}
+
+.contact.back { margin-top: 65px; }
+
+#login .social-login .contact {
+    position: static !important;
+    display: block;
+    margin: 0 auto !important;
+    padding: 0 18px;
+    color: #fff0f8 !important;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.45;
+    white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(28, 6, 23, .24);
+}
+
+.price-icon,
+.sellpoint,
+#login .social-login .price-icon,
+#login .social-login .sellpoint {
+    position: absolute;
+    z-index: 8;
+    bottom: 16px;
+    width: 128px;
+    height: 52px;
+    margin: 0;
+    padding: 0 8px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 16px;
+    color: #300b2f !important;
+    background: linear-gradient(135deg, #fdf2f8, #f9a8d4, #ec6fd2);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 52px;
+    box-shadow: 0 -6px 16px rgba(48, 11, 47, .18);
+}
+
+#login .social-login .price-icon,
+.price-icon {
+    left: 20px;
+    right: auto;
+}
+
+#login .social-login .sellpoint,
+.sellpoint {
+    right: 20px;
+    left: auto;
+}
+
+.sell-point-icon {
+    margin: 0;
+}
+
+.app-store {
+    position: absolute;
+    margin: auto 50px auto auto;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.social-login-icon {
+    padding: 20px 10px;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 8px #f472d0;
+}
+
+.social-login-icon:hover { transform: scale(1.5); }
+
+/* =========================================================
+   09) صفحات التطبيق بعد الدخول: الأسعار، الحالة، نقاط البيع
+   ========================================================= */
+#login.inactive,
+.app {
+    opacity: 0;
+    transform: scale(1.1);
+}
+
+.app {
+    display: none;
+    height: auto;
+    transition: opacity .1s, transform .3s cubic-bezier(.68, -.45, .465, 1.25);
+    transform: scale(1.2);
+}
+
+#login,
+.app.active { opacity: 1; }
+
+.app.active,
+.app.active .app-logout { transform: scale(1); }
+
+.app-logout {
+    cursor: pointer;
+    transform: scale(0);
+    transition: transform .4s .2s, opacity .1s .7s, background-color .1s .2s;
+}
+
+.app-logout.back {
+    width: 80px;
+    height: 50px;
+    margin: -15px 45px 0 0;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #300b2f;
+    color: #f9a8d4;
+}
+
+.app-logout.clicked {
+    opacity: .9;
+    border: 0;
+    background-color: #f472d0;
+    font-size: 0;
+    transform: scale(30) !important;
+}
+
+.price-div,
+.sell-point-div,
+.status-div {
+    width: 100%;
+    height: 100%;
+}
+
+div.wrapper,
+.app .wrapper,
+.status-div .wrapper,
+.price-div .wrapper,
+.sell-point-div .wrapper {
+    height: 100vh;
+    overflow: auto;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff !important;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(244, 114, 208, .25), transparent 32%),
+        linear-gradient(180deg, #8b2b83 0%, #5a194f 52%, #300b2f 100%) !important;
+    border: 1px solid rgba(249, 168, 212, .78) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 14px 30px rgba(48, 11, 47, .20) !important;
+}
+
+.status-div div.wrapper { height: unset; }
+
+div.wrapper::-webkit-scrollbar { width: .1em; }
+div.wrapper::-webkit-scrollbar-track { box-shadow: inset 0 0 6px rgba(0, 0, 0, .3); }
+div.wrapper::-webkit-scrollbar-thumb {
+    background-color: #f9a8d4;
+    outline: 1px solid #f9a8d4;
+}
+
+.title,
+.app .title,
+#status-title {
+    margin: 15px;
+    padding: 10px 0;
+    border: 1px solid rgba(255, 255, 255, .22) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg, #fdf2f8, #f9a8d4, #ec6fd2) !important;
+    color: #300b2f !important;
+    font-size: 20px;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(48, 11, 47, .22) !important;
+}
+
+.app p,
+.status-div p,
+.price-div p,
+.sell-point-div p,
+.wrapper p,
+.wrapper h5,
+.wrapper span,
+.pspeed {
+    color: #fff0f8 !important;
+}
+
+#loan-explain { padding: 25px; }
+#loan-explain .contact-text { margin-bottom: 10px; }
+#loan-button {
+    right: 15%;
+    width: 70%;
+}
+
+.grid {
+    float: right;
+    width: 21.9%;
+    height: 72px;
+    margin: 5px;
+    background-position: center;
+    background-size: 70px;
+    background-repeat: no-repeat;
+}
+
+.wspeed {
+    color: #fff;
+    font-size: 20px;
+}
+
+.tcs,
+#speedchange,
+#updatechange {
+    height: 44px !important;
+    border: 1px solid rgba(249, 168, 212, .85) !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #8b2b83, #5a194f) !important;
+    color: #fff7fb !important;
+}
+
+.a,
+.app a {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid rgba(249, 168, 212, .9) !important;
+    border-radius: 10px;
+    color: #fff0f8 !important;
+    text-decoration: none;
+}
+
+/* =========================================================
+   10) الجداول
+   ========================================================= */
+table,
+.wrapper table,
+.statusdiv {
+    width: 100%;
+    overflow: hidden !important;
+    border: 1px solid rgba(249, 168, 212, .9) !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, .05) !important;
+    box-shadow: 0 8px 18px rgba(48, 11, 47, .18) !important;
+    font-size: 14px;
+}
+
+table { border-collapse: collapse; }
+
+table td {
+    padding: 10px 4px 10px 0;
+}
+
+table td:first-child { font-weight: 700; }
+
+tr {
+    background: linear-gradient(135deg, #5a194f 0%, #b8329b 54%, #ec6fd2 100%) !important;
+}
+
+td,
+th {
+    padding: 15px;
+    border-bottom: 1px solid rgba(249, 168, 212, .82) !important;
+    border-inline: 1px solid rgba(249, 168, 212, .72) !important;
+    background: 0;
+    color: #fff7fb !important;
+    font-size: 11px;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+
+.info,
+tbody td,
+th { text-align: center; }
+
+tbody tr:hover { background-color: rgba(255, 255, 255, .18); }
+
+.sell-point td { font-size: 13px; }
+
+tbody td:hover:before {
+    content: "";
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    z-index: -1;
+}
+
+table .img {
+    width: 150px;
+    height: 80px;
+}
+
+.statusdiv {
+    margin-bottom: 20px;
+}
+
+/* =========================================================
+   11) رسائل الخطأ
+   ========================================================= */
+.error-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding-top: 200px;
+    background-color: rgba(184, 50, 155, .36);
+}
+
+.error-container.active {
+    display: block;
+    z-index: 2;
+}
+
+.error-container .error .fade-in {
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(-45deg, #300b2f, #b8329b);
+    transform: scale(0);
+}
+
+.error-container.zoom .error .fade-in {
+    transform: scale(1);
+    transition: transform .1s .1s ease-out;
+}
+
+.error {
+    position: relative;
+    display: block;
+    width: 60%;
+    min-width: 300px;
+    max-width: 350px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   13) توافق الشاشات
+   ========================================================= */
+@media (max-width: 430px) {
+    .container { padding: 4px; }
+    .screen { max-width: 100%; }
+}
+
+@media (max-width: 390px) {
+    :root {
+        --ad-width: calc(100% - 12px);
+        --ad-margin-top: 14px;
+        --ad-margin-bottom: 16px;
+    }
+
+    .hotspot-hero {
+        min-height: 158px;
+        padding-top: 16px;
+    }
+
+    .hotspot-title { font-size: 24px; }
+
+    .ads {
+        border-width: 4px;
+        border-radius: 22px;
+    }
+
+    .box span,
+    .box span img { border-radius: 18px; }
+
+    .hotspot-news-section { padding: 0 10px 10px; }
+
+    .section {
+        height: 40px;
+        line-height: 40px;
+        padding-right: 76px;
+    }
+
+    .section .marquee {
+        height: 40px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .m {
+        right: 10px;
+        width: 72px;
+        height: 44px;
+        font-size: 14px;
+    }
+
+    .login-form {
+        width: calc(100% - 24px);
+        padding: 18px 16px 22px;
+    }
+
+    .login-form > p:first-child { font-size: 19px; }
+
+    #login .social-login {
+        min-height: 118px;
+        padding-top: 16px;
+    }
+
+    #login .social-login .contact {
+        padding: 0 8px;
+        font-size: 14px;
+    }
+
+    .price-icon,
+    .sellpoint,
+    #login .social-login .price-icon,
+    #login .social-login .sellpoint {
+        bottom: 14px;
+        width: 108px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+    }
+
+    #login .social-login .price-icon,
+    .price-icon { left: 16px; }
+
+    #login .social-login .sellpoint,
+    .sellpoint { right: 16px; }
+}
+
+@media (max-width: 340px) {
+    :root {
+        --ad-width: calc(100% - 10px);
+        --ad-margin-top: 12px;
+        --ad-margin-bottom: 14px;
+    }
+
+    .hotspot-hero {
+        min-height: 146px;
+        padding-top: 14px;
+    }
+
+    .hotspot-title { font-size: 21px; }
+
+    .hotspot-news-section { padding: 0 8px 10px; }
+
+    .section {
+        height: 38px;
+        line-height: 38px;
+        padding-right: 70px;
+    }
+
+    .section .marquee {
+        height: 38px;
+        line-height: 38px;
+        font-size: 12px;
+    }
+
+    .m {
+        right: 8px;
+        width: 66px;
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .login-form { padding: 16px 12px 20px; }
+
+    .login-form > p:first-child { font-size: 18px; }
+
+    .login-input,
+    select {
+        height: 42px;
+        font-size: 12px;
+    }
+
+    #login .social-login { min-height: 112px; }
+    #login .social-login .contact { font-size: 12px; }
+
+    .price-icon,
+    .sellpoint,
+    #login .social-login .price-icon,
+    #login .social-login .sellpoint {
+        width: 94px;
+        height: 48px;
+        line-height: 48px;
+        font-size: 13px;
+    }
+
+    #login .social-login .price-icon,
+    .price-icon { left: 12px; }
+
+    #login .social-login .sellpoint,
+    .sellpoint { right: 12px; }
+}
+
+
+/* =========================================================
+   14) واجهة اختيار السرعة قبل تسجيل الدخول
+   ========================================================= */
+.speed-required-modal[hidden] {
+    display: none !important;
+}
+
+.speed-required-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(1, 16, 39, .72);
+    backdrop-filter: blur(7px);
+}
+
+.speed-required-box {
+    width: min(92vw, 390px);
+    padding: 22px 18px 18px;
+    border: 1px solid rgba(249, 168, 212, .75);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 50% 0, rgba(103, 214, 255, .26), transparent 38%),
+        linear-gradient(180deg, #8b2b83 0%, #5a194f 55%, #300b2f 100%);
+    box-shadow: 0 24px 48px rgba(28, 6, 23, .42);
+    text-align: center;
+    position: relative;
+}
+
+.speed-required-box h2 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.speed-required-box p {
+    margin: 0 0 16px;
+    color: #fff0f8;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.speed-required-options {
+    display: grid;
+    gap: 10px;
+}
+
+.speed-choice-item,
+.speed-required-cancel,
+.speed-required-close {
+    cursor: pointer;
+    font-family: Almarai, sans-serif;
+}
+
+.speed-choice-item {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, .24);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fdf2f8, #f9a8d4, #ec6fd2);
+    color: #300b2f !important;
+    font-size: 16px;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(48, 11, 47, .20);
+}
+
+.speed-choice-item:active,
+.speed-choice-item:focus,
+.speed-choice-item:hover {
+    outline: 0;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(48, 11, 47, .28);
+}
+
+.speed-required-cancel {
+    width: 100%;
+    height: 44px;
+    margin-top: 12px;
+    border: 1px solid rgba(249, 168, 212, .62);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .08);
+    color: #fff0f8;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.speed-required-close {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(255, 255, 255, .24);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+body.speed-modal-open {
+    overflow: hidden;
+}

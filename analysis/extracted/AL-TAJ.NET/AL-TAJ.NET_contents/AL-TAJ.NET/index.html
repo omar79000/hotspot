@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title data-network-name>شبكة{{network-name}} اللاسلكيه</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#7e22ce">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/fontello.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/brand.css">
+</head>
+<body translate="no">
+        <div class="container">
+            <div class="error-container">
+                <div class="error">
+                    <div class="fade-in">
+                        <p id="error"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="screen">
+                <div class="screen-content">
+                    <div class="login" id="login" style="visibility: visible;">
+                        <div class="hotspot-hero">
+                            <h1 class="hotspot-title" data-network-name>شبكة {{network-name}} اللاسلكية</h1>
+                        </div>
+
+                        <div class="hotspot-ad-section" data-ads-section aria-label="قسم إعلانات الشبكة">
+                            <div class="ads" aria-label="إعلانات الشبكة">
+                                <div class="box">
+                                    <span><img class="im1" src="./adimg/1.jpg" alt="إعلان 1"></span>
+                                    <span><img class="im2" src="./adimg/1.jpg" alt="إعلان 2"></span>
+                                    <span><img class="im3" src="./adimg/2.jpg" alt="إعلان 3"></span>
+                                    <span><img class="im4" src="./adimg/1.jpg" alt="إعلان 4"></span>
+                                    <span><img class="im5" src="./adimg/1.jpg" alt="إعلان 5"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hotspot-news-section">
+                            <button class="m" parent-id="loan" data-loan-button>جديدنا</button>
+                            <section class="section">
+                                <p class="marquee" data-news-line>{{news-line}}</p>
+                            </section>
+                        </div>
+
+                        <form class="login-form" name="login">
+                            <p>مرحبا بك .. قم بتسجيل الدخول</p>
+                            <div class="login-field"><i class="login-icon fas icon-user"></i><input name="username"
+                                    class="login-input" placeholder="ادخل رقم الكرت هنا" username-field improve-input
+                                    autocomplete="off">
+                                    <select name="" id="se" >
+                                        <option value="0" selected disabled >دخول بكرت سابق</option>
+                                        <option value="relod">تحديث</option>
+                                    </select>
+                                </div>
+                            <div class="login-field password-field"><i class="login-icon fas icon-lock"></i><input
+                                    type="hidden" name="password" class="login-input" placeholder="ادخل كلمة السر هنا"
+                                    improve-input></div>
+                            <p>أختر سرعتك من هنا</p><select id="speed" speed-field required>
+                                    <option value="" selected disabled hidden>اختر السرعة أولاً</option>
+                                <option value="128K/512K">سرعة اقتصادية</option>     
+                                <option value="256K/768K">سرعةافتراضية)عادية</option>     
+                                <option value="256K/2M">سرعة متوسطة</option>
+                                <option value="512K/4M">سرعة عالية</option>
+                            </select><br><br>
+                            <p>التحديثات و المتجر تسبب أنتهاء الرصيد بسرعة يمكنك أيقافهما بالضغط هنا </p>
+                            <div style="margin: 15px;"><input type="checkbox" value="_Uon" id="chupdate"><label
+                                    for="chupdate">أيقاف التحديثات </label></div><button class="button login-submit"
+                                parent-id="status" enable-hot-cookie><span class="button-text">تسجيل
+                                    الدخول</span></button>
+                        </form>
+                        <div class="speed-required-modal" id="speed-required-modal" hidden>
+                            <div class="speed-required-box" role="dialog" aria-modal="true" aria-labelledby="speed-required-title">
+                                <button type="button" class="speed-required-close" id="speed-required-close" aria-label="إغلاق">×</button>
+                                <h2 id="speed-required-title">اختر سرعة الكرت</h2>
+                                <p>قبل تسجيل الدخول يجب اختيار السرعة المناسبة لهذا الكرت.</p>
+                                <div class="speed-required-options" id="speed-required-options"></div>
+                                <button type="button" class="speed-required-cancel" id="speed-required-cancel">رجوع</button>
+                            </div>
+                        </div>
+                        <div class="social-login"><button class="price-icon" parent-id="price"
+                                data-price-button><span>أسعارالكروت</span></button><button class="sellpoint"
+                                parent-id="sell-point" data-sell-point-button>نقاط البيع</button>
+                            <h5 style="color: #fce2a9; position: absolute; left: 0; right: 0; bottom: -15px; "
+                                class="contact" data-service-number>خدمة العملاء: {{service-number}}</h5>
+                        </div>
+                    </div>
+                    <div class="app" id="price">
+                        <div class="price-div">
+                            <div class="wrapper">
+                                <p class="title">الاسعار</p>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">الفئة</th>
+                                            <th scope="col">الوقت</th>
+                                            <th scope="col">الرصيد</th>
+                                            <th scope="col">الصلاحية</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="profiles"></tbody>
+                                </table><button class="app-logout button app-submit">رجوع</button>
+                                <h5 class="contact " data-service-number>خدمة العملاء: {{service-number}}</h5>
+                            </div>
+                        </div>
+                        <div class="social-login"></div>
+                    </div>
+                    <div class="app" id="sell-point">
+                        <div class="sell-point-div">
+                            <div class="wrapper">
+                                <p class="title">نقاط البيع</p>
+                                <table>
+                                    <tbody class="sell-point" id="sell-points"></tbody>
+                                </table><button class="app-logout button app-submit">رجوع</button>
+                                <h5 class="contact" data-service-number>خدمة العملاء: {{service-number}}</h5>
+                            </div>
+                        </div>
+                        <div class="social-login"></div>
+                    </div>
+                    <div class="app" id="status">
+                        <div class="status-div">
+                            <div class="wrapper">
+                                <p class="title" id="status-title">تم تسجيل دخولك بنجاح!</p>
+                                <p>إذا لم يتم الأتصال تلقائيا أضغط <a
+                                        style="text-decoration: none; color: #fce2a9; padding: 5px;border: 1px solid; border-radius: 10px;"
+                                        href="status.html">هنا</a></p>
+                                        <br>
+                                        <a
+                                        style="text-decoration: none; display: block; color: #b4b433; margin: 15px; padding: 15px;border: 1px solid; border-radius: 10px;"
+                                        href="http://35.10.10.10/">الاستراحة</a>
+
+                                        <a
+                                        style="text-decoration: none; display: block; color: #b4b433; margin: 15px; padding: 15px;border: 1px solid; border-radius: 10px;"
+                                        href="http://35.10.10.10:88">البث المباشر</a>
+                                        
+                                <p>أختيار سرعات عالية يسبب انتهاء الكرت بسرعة بسبب التطبيقات التي تستهلك أنترنت أكثر
+                                    <br>أختر سرعة اقل للحفاظ على الكرت</p><br>
+                                <div class="statusdiv">
+                                    <table>
+                                        <tr>
+                                            <td class="img" rowspan="2"><img style="height: 100%; width: 100%;"
+                                                    src="img/ss.svg" alt=""></td>
+                                            <td>سرعة الكرت</td>
+                                        </tr>
+                                        <tr>
+                                            <td id="sspeed"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><select id="speedchange" class="tcs">
+                                                    <option value="ns" disabled hidden selected>أضغط هنا لتغيير سرعة
+                                                        الإنترنت </option>
+                                                </select></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <p>التحديثات و المتجر سبب أنتهاء الرصيد بسرعة يمكنك أيقافهما من هنا </p><br>
+                                <div class="statusdiv">
+                                    <table>
+                                        <tr>
+                                            <td>التحديثات و متجر التطبيقات </td>
+                                            <td style="position: relative;" class="img" rowspan="2"><img
+                                                    style="height: 100%; width: 100%;" src="img/gs.svg" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="update"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><select id="updatechange" class="tcs">
+                                                    <option value="ns" disabled hidden selected>أضغط هنا للتغيير
+                                                    </option>
+                                                    <option value="_Uon">تفعيل التحديثات </option>
+                                                    <option value="_Uoff">أيقاف التحديثات</option>
+                                                    <option value="cancel">إلغاء</option>
+                                                </select></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <p>معلومات الكرت</p><br>
+                                <table>
+                                    <tr>
+                                        <td>التنزيل</td>
+                                        <td id="bytes_out"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>الرفع</td>
+                                        <td id="bytes_in"></td>
+                                    </tr>
+                                    <tr remain_bytes_total>
+                                        <td>التحميل المتبقي</td>
+                                        <td id="remain_bytes_total">مفتوح</td>
+                                    </tr>
+                                    <tr>
+                                        <td>الوقت المستهلك</td>
+                                        <td id="uptime"></td>
+                                    </tr>
+                                    <tr session_time_left>
+                                        <td>الوقت المتبقي</td>
+                                        <td id="session_time_left">مفتوح</td>
+                                    </tr>
+                                </table><br><br><br><br><button class=" login-submit app-logout" erase-cookie
+                                    clear-hot-cookie>تسجيل الخروج</button><br><button
+                                    class="login-submit app-logout">قطع الاتصال</button><br><br><br>
+                                <p class="pspeed" data-service-number>خدمة العملاء: {{service-number}}</p>
+                            </div>
+                        </div><button class="button app-submit sell-point-icon app-store" parent-id="app-store"
+                            data-app-store-status-button>متجر البرامج</button>
+                    </div>
+                    <div class="app" id="block">
+                        <div class="status-div">
+                            <div class="wrapper">
+                                <p class="title">انت محظور</p>
+                                <div style="padding: 25px">
+                                    <p class="contact-text">لقد تم حظرك بسبب محاولات تسجيل الدخول الكثيرة الخاطئة</p>
+                                    <div class="app-user"><span>بقي على فك الحظر: </span><span count-down-span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-login">
+                            <h5 class="contact back" data-service-number>خدمة العملاء: {{service-number}}</h5>
+                        </div>
+                    </div>
+                    <div class="app" id="app-store">
+                        <div class="sell-point-div">
+                            <div class="wrapper" id="grid"></div>
+                        </div>
+                        <div class="social-login"><button class="app-logout button app-submit back">الصفحة
+                                السابقة</button>
+                            <h5 class="contact back" data-service-number>خدمة العملاء: {{service-number}}</h5>
+                        </div>
+                    </div>
+                    <div class="app" id="loan">
+                        <div class="price-div">
+                            <div class="wrapper">
+                                <p class="title">التاج نت</p> 
+                                <!-- هنا يتم كتابة الخدمات و العروض و النصائح -->
+							<p> توسعة كاملة في جميع مناطق الشبكة </p>
+							<p> يوجد لدينا خدمة توصيل المودمات الى المنازل </p>								
+
+
+
+                                <!-- هنا يتم كتابة الخدمات و العروض و النصائح -->
+                                <button class="app-logout button app-submit">رجوع</button>
+                                <h5 class="contact " data-service-number>خدمة العملاء: {{service-number}}</h5>
+                            </div>
+                        </div>
+                        <div class="social-login"></div>
+                    </div>
+                </div>
+                <div class="screen-background"><span
+                        class="screen-background-shape screen-background-shape8"></span><span
+                        class="screen-background-shape screen-background-shape7"></span><span
+                        class="screen-background-shape screen-background-shape6"></span><span
+                        class="screen-background-shape screen-background-shape5"></span><span
+                        class="screen-background-shape screen-background-shape4"></span>
+                        <span
+                        class="screen-background-shape screen-background-shape3">
+                        <svg  class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                            <path d="M 0 30 Q 20 65 100 0 V 80 Q 50 70 0 100  Z" ></path>
+                        </svg></span><span
+                        class="screen-background-shape screen-background-shape2"></span>
+                        
+                        <span
+                        class="screen-background-shape screen-background-shape1"></span></div>
+            </div>
+
+            <span style="display: none;" id="winmsg">
+                <!-- هنا يتم وضع نص الاشعارات -->
+
+                <!-- هنا يتم وضع نص الاشعارات -->
+            </span>
+        </div>
+        <script src="js/init.min.js?v=domain-final-1"></script>
+        <script src="js/hotInImprover.min.js?v=domain-final-1"></script>
+        <script src="js/hotCookie.min.js?v=domain-final-1"></script>
+        <script src="js/hotOptions.min.js?v=domain-final-1"></script>
+        <script src="js/hotBlocker.min.js?v=domain-final-1"></script>
+        <script src="js/main.min.js?v=domain-final-1"></script>
+        <script src="js/domainGuard.js?v=domain-final-1"></script>
+        <script src="js/speedGate.js?v=domain-final-1"></script>
+        <script>
+            var e,  m = new Date().toDateString()
+            if(m.includes('Fri')){
+                e = document.getElementById('error').innerText ="جمعة مباركة" ;
+                showErrorPopup()
+            }
+        </script>
+</body>
+</html>
