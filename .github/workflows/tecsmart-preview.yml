@@ -45,17 +45,20 @@ jobs:
       - name: Check protected RouterOS and page contracts
         run: python3 tools/check_tecsmart_preview.py
 
-      - name: Start local preview server
+      - name: Start main baseline and preview servers
         run: |
+          mkdir -p /tmp/tecsmart-baseline
+          git archive origin/main analysis/extracted/Tecsmart/Tecsmart | tar -x -C /tmp/tecsmart-baseline
+          python3 -m http.server 8766 --directory /tmp/tecsmart-baseline/analysis/extracted/Tecsmart/Tecsmart > /tmp/tecsmart-baseline-server.log 2>&1 &
           python3 -m http.server 8765 --directory analysis/extracted/Tecsmart/Tecsmart > /tmp/tecsmart-preview-server.log 2>&1 &
-          echo $! > /tmp/tecsmart-preview-server.pid
           for attempt in {1..30}; do
-            if curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null; then
+            if curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null && curl --fail --silent http://127.0.0.1:8766/index.html >/dev/null; then
               exit 0
             fi
             sleep 1
           done
           cat /tmp/tecsmart-preview-server.log
+          cat /tmp/tecsmart-baseline-server.log
           exit 1
 
       - name: Run responsive Chromium and speed-gate smoke tests
