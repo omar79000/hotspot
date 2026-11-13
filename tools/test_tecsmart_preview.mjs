@@ -33,7 +33,12 @@ try {
     await baselinePage.route("**/login*", route =>
       route.fulfill({ status: 200, contentType: "application/json", body: "{}" }),
     );
-    await baselinePage.goto(`${baselineUrl}/index.html`, { waitUntil: "networkidle" });
+    await baselinePage.goto(`${baselineUrl}/index.html`, { waitUntil: "load", timeout: 15000 });
+    await baselinePage.waitForFunction(
+      () => window.hotspotConfig && window.hotspotConfig["network-name"],
+      undefined,
+      { timeout: 10000 },
+    );
     await baselinePage.waitForTimeout(350);
     await baselinePage.close();
 
@@ -65,7 +70,12 @@ try {
       }
     });
 
-    await page.goto(`${baseUrl}/index.html`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/index.html`, { waitUntil: "load", timeout: 15000 });
+    await page.waitForFunction(
+      () => window.hotspotConfig && window.hotspotConfig["network-name"],
+      undefined,
+      { timeout: 10000 },
+    );
     await page.waitForTimeout(350);
 
     const metrics = await page.evaluate(() => {
