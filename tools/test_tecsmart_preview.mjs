@@ -54,7 +54,7 @@ try {
         await route.fulfill({
           status: 200,
           contentType: "application/json",
-          body: JSON.stringify({ action: "onLoginError", error: "Preview-only test response" }),
+          body: "{}",
         });
       } else {
         await route.fulfill({
