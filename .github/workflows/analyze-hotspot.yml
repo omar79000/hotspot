@@ -8,7 +8,7 @@ on:
       - "tools/analyze_hotspot_archives.py"
       - "AL-TAJ.NET.rar.zip"
       - "Tecsmart.zip"
-      - "صفحة رشيد اعتقد بدون اي تعديل.zip"
+      - "صفحه رشيد اعتقد بدون اي تعديل.zip"
   workflow_dispatch:
 
 permissions:
