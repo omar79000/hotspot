@@ -349,3 +349,137 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .box, .section .marquee { animation-duration: 1ms; animation-iteration-count: 1; }
   .login-submit, .app-submit { transition: none; }
 }
+
+
+/* Final mobile layout corrections based on the actual Tecsmart markup. */
+body {
+  overflow-x: hidden;
+  background-attachment: scroll;
+}
+
+.container {
+  justify-content: flex-start;
+  overflow: visible;
+  min-height: calc(100vh - 12px);
+  min-height: calc(100svh - 12px);
+  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+}
+
+.screen {
+  width: min(100%, 460px);
+  max-width: 460px;
+  min-width: 0;
+}
+
+/* Keep the footer in the same dark visual system as the login card. */
+#login .social-login {
+  min-height: 120px !important;
+  margin: 0 auto !important;
+  padding: 16px 12px 62px !important;
+  border-top: 1px solid rgba(37, 213, 232, .24) !important;
+  border-radius: 0 0 22px 22px;
+  background: linear-gradient(145deg, #111d36 0%, #172847 58%, #20234b 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.045);
+}
+
+#login .social-login .contact {
+  color: #aebed9 !important;
+  font-size: 13px;
+  text-shadow: none !important;
+}
+
+#login .social-login .price-icon,
+#login .social-login .sellpoint {
+  bottom: 12px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50% - 22px) !important;
+  max-width: 150px;
+  height: 44px !important;
+  min-height: 44px;
+  padding: 7px 8px !important;
+  border: 1px solid rgba(133,166,230,.25) !important;
+  border-radius: 12px !important;
+  color: #f3f6ff !important;
+  background: linear-gradient(115deg, #2459bd, #514ac4 58%, #7350bf) !important;
+  box-shadow: 0 7px 18px rgba(36, 73, 163, .25), inset 0 1px 0 rgba(255,255,255,.14) !important;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25 !important;
+}
+
+#login .social-login .price-icon {
+  left: 12px !important;
+  right: auto !important;
+}
+
+#login .social-login .sellpoint {
+  right: 12px !important;
+  left: auto !important;
+}
+
+/* The original stylesheet gives app panels a fixed viewport height.
+   Let the content determine height so long Arabic tables remain scrollable. */
+.app .wrapper {
+  height: auto !important;
+  min-height: calc(100vh - 36px);
+  min-height: calc(100svh - 36px);
+  max-height: none;
+  overflow: visible !important;
+  padding: 18px 14px 24px;
+  border-radius: 20px !important;
+}
+
+#status-title,
+.app .title,
+.app .wrapper .title {
+  color: #f3f6ff !important;
+  background: linear-gradient(110deg, rgba(38, 69, 130, .72), rgba(70, 54, 130, .68)) !important;
+  border: 1px solid rgba(133,166,230,.25) !important;
+  box-shadow: none !important;
+}
+
+.app .wrapper table,
+.app .wrapper .statusdiv {
+  border: 1px solid rgba(133,166,230,.22) !important;
+  background: rgba(7, 14, 29, .42) !important;
+  box-shadow: none !important;
+}
+
+.app .wrapper table th,
+.app .wrapper table td {
+  color: #dce7fb !important;
+  border-color: rgba(133,166,230,.16) !important;
+  background: rgba(12, 22, 42, .30) !important;
+}
+
+.app .wrapper select.tcs,
+.app .wrapper #speedchange,
+.app .wrapper #updatechange {
+  min-height: 46px;
+  border: 1px solid rgba(37,213,232,.34) !important;
+  border-radius: 12px !important;
+  color: #eff7ff !important;
+  background: linear-gradient(120deg, #152b4c, #24234c) !important;
+}
+
+.app .wrapper a {
+  color: #70dbea !important;
+}
+
+.app .wrapper .app-submit,
+.app .wrapper .login-submit {
+  color: #fff !important;
+  background: linear-gradient(110deg, #2867df, #5855e8 54%, #8657d9) !important;
+}
+
+@media (max-width: 360px) {
+  #login .social-login .price-icon,
+  #login .social-login .sellpoint {
+    width: calc(50% - 18px) !important;
+    font-size: 12px;
+  }
+  #login .social-login .price-icon { left: 9px !important; }
+  #login .social-login .sellpoint { right: 9px !important; }
+}
