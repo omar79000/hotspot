@@ -84,10 +84,16 @@ jobs:
           RouterOS templates, JavaScript, speed values, and config are protected
           by source checks against the repository main branch.
           
-          The browser smoke test uses a local mock response for /login. It does
-          not authenticate against a real MikroTik and does not verify live
-          speed/profile assignment. Verify login, speed changes, status, and
-          logout on a test router before production use.
+          The browser smoke test uses a local static harness. It checks
+          responsive layout, the speed-selection modal, and the form submit
+          event only. It does not verify the RouterOS /login exchange, real
+          authentication, or live speed/profile assignment.
+          
+          A pre-existing main-branch browser error remains unchanged: the
+          config has a redirect-to-esterahah URL but the page has no matching
+          data-esterahah element. This visual-only preview does not alter it.
+          Verify login, speed changes, status, and logout on a test router
+          before production use.
           EOF
           (cd preview-package && zip -qr "$GITHUB_WORKSPACE/Tecsmart-preview.zip" .)
 
