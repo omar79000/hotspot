@@ -101,6 +101,7 @@ try {
     assert.ok(metrics.backgroundImage.includes("gradient"), "Dark gradient background is missing");
     assert.ok(!metrics.formBackground.includes("rgb(255, 255, 255)"), "Login card unexpectedly has a white background");
 
+    let loginRequestVerified = null;
     if (viewport.width === 390) {
       await page.screenshot({
         path: "artifacts/screenshots/tecsmart-mobile-390x844.png",
@@ -138,7 +139,7 @@ try {
       // A local static server cannot reproduce RouterOS's /login response.
       // If the original JS issues the request, verify its existing parameters;
       // otherwise retain the UI/form test and report that request as unverified.
-      let loginRequestVerified = false;
+      loginRequestVerified = false;
       if (loginRequest) {
         const submitted = new URL(loginRequest);
         assert.equal(submitted.searchParams.get("username"), "PREVIEW-123");
@@ -172,7 +173,7 @@ try {
       existingBaselineErrors: normalizedBaseline,
       failedRequests: failedRequests.length,
       speedGateTested: viewport.width === 390,
-      loginRequestObserved: viewport.width === 390 ? loginRequestVerified : null,
+      loginRequestObserved: loginRequestVerified,
     });
     await page.close();
   }
