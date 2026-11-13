@@ -89,6 +89,30 @@ for name, archive in SOURCES.items():
         report.append("")
     report += ["### Initial interpretation", "",
                "Indicators are strings found in files, not proof that a feature is active. Trace source files to confirm login flow, CHAP handling, redirects, status polling, and logout behavior before proposing changes.", ""]
+# Cross-archive comparison by relative path and content hash.
+report += ["## Cross-archive comparison", "",
+           "The comparison below uses relative paths and SHA-256 hashes. A matching filename alone does not mean the files are identical.", ""]
+names = list(inventory)
+for i, left in enumerate(names):
+    for right in names[i + 1:]:
+        lmap = {x["path"]: x for x in inventory[left]}
+        rmap = {x["path"]: x for x in inventory[right]}
+        common = sorted(set(lmap) & set(rmap))
+        identical = [p for p in common if lmap[p]["sha256"] == rmap[p]["sha256"]]
+        different = [p for p in common if lmap[p]["sha256"] != rmap[p]["sha256"]]
+        only_left = sorted(set(lmap) - set(rmap))
+        only_right = sorted(set(rmap) - set(lmap))
+        report += [f"### {left} vs {right}", "",
+                   f"- Same relative path: {len(common)}",
+                   f"- Byte-identical files: {len(identical)}",
+                   f"- Same path but different content: {len(different)}",
+                   f"- Unique to {left}: {len(only_left)}",
+                   f"- Unique to {right}: {len(only_right)}", ""]
+        for label, paths in [("Byte-identical", identical), ("Different content", different),
+                             (f"Only {left}", only_left), (f"Only {right}", only_right)]:
+            report.append(f"**{label}:**")
+            report.extend(["- " + p for p in paths] if paths else ["- None"])
+            report.append("")
 (OUT / "HOTSPOT_ANALYSIS.md").write_text("\n".join(report), encoding="utf-8")
 (OUT / "inventory.json").write_text(json.dumps(inventory, indent=2), encoding="utf-8")
 print("Analysis complete: " + str(sum(len(v) for v in inventory.values())) + " files")
