@@ -14,6 +14,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: hotspot-archive-analysis-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -48,5 +52,6 @@ jobs:
           git add analysis/THIRD_PAGE_COMPARISON.md analysis/THREE_PAGE_INVENTORY.json
           if ! git diff --cached --quiet; then
             git commit -m "Publish three-page Hotspot comparison"
+            git pull --rebase origin main
             git push
           fi
