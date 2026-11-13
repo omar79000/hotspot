@@ -114,7 +114,7 @@ for css_path in (SITE / "css").glob("*.css"):
 modern_css = (SITE / "css/tecsmart-modern.css").read_text(encoding="utf-8")
 if any(token in modern_css.lower() for token in ("http://", "https://")):
     fail("The new stylesheet must not depend on remote assets")
-for token in ("#080d1b", "#4778ff", "#8657f5", "#16b9c5"):
+for token in ("#080d1b", "#4778ff", "#8657f5", "#25d5e8"):
     if token not in modern_css.lower():
         fail(f"Expected dark-theme palette token is missing: {token}")
 if "tecsmart-modern.css" not in current_index:
