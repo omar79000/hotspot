@@ -1,0 +1,463 @@
+{
+  "AL-TAJ.NET": [
+    {
+      "path": "AL-TAJ.NET.rar",
+      "size": 92056,
+      "sha256": "72009e6066f7b537109f96b8ccadfec27cf21b019550836aa410b6452fa9a517"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/adimg/22.jpg",
+      "size": 11439,
+      "sha256": "372ea862b2f7fc898b5a6c0b8993c5a9dd096ea120d199a408a25ca6e689852d"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/adimg/3.jpg",
+      "size": 22528,
+      "sha256": "7ca05b77cb51d53f18e2a45fb73c42a58a5984e3fd931112b99b51264d4daaf8"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/alogin.html",
+      "size": 620,
+      "sha256": "77810cf4b0991d51bd69a38a1010a3695b8dfc2a47c357e88531eb361081d408"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/config/config.js",
+      "size": 3277,
+      "sha256": "aaf290a9c122df505ad5553a211e6114b4feffd1ed14acb08b25e9687123fae4"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/css/brand.css",
+      "size": 22413,
+      "sha256": "1728f216fc14f4cc2a93724291f0c08f1a4caeab4ef660e08e5afd6c635eab98"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/css/fontello.min.css",
+      "size": 582,
+      "sha256": "ab54af2a3890167bd7917852b8dd47a1f11c9e839beac27f42ee016dd433b101"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/css/style.min.css",
+      "size": 28288,
+      "sha256": "7bd9432f962b30bce3c6a5f9746841941f9c8a4b3f3b3a487d4444d29e4b3b8d"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/fonts/Almarai.css",
+      "size": 387,
+      "sha256": "8e4b5566f9a1e8763001e7b05e010b23afd19825c518fe04c995ca3235026a86"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/fonts/Almarai.woff2",
+      "size": 16436,
+      "sha256": "573d3df7f66ed2f2b0b4a4abf2c252d0cc26f6ba8d9133c17bfbc8d697646799"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/fonts/fontello.woff2",
+      "size": 2748,
+      "sha256": "2f41a4c2be134bb030819bd2bc4ceea6985e4612a1881c1fd8f6b784d86f9dfe"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/es.svg",
+      "size": 1946,
+      "sha256": "fb7281353aabf7fe115d73b9149f67fb8fd919e1d15615f5e4a5d1d491349fce"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/favicon.ico",
+      "size": 196,
+      "sha256": "5916a1b728ca1aaa8900291c21dec6fd47cb0e712229d530818e58d3d1d9bb07"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/gs.svg",
+      "size": 2178,
+      "sha256": "9f018af733901cd137b3856b3734b0c68f0c71fae6f512f5f69dc4ecd0d64f30"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/h.svg",
+      "size": 1102,
+      "sha256": "de00d82a06a459b3a46a32c4a5d1b9c9cffd839dd34303e3242809e90c05b531"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/logo.png",
+      "size": 96,
+      "sha256": "8d447892b6efbc450beab391a7003090694cfcd0014d20766150112cab1675a0"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/img/ss.svg",
+      "size": 1135,
+      "sha256": "32f496df2ce984e5ce1fa4c2db01a1206875f282fb6542d322e41c33f781ac40"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/index.html",
+      "size": 19308,
+      "sha256": "ca524cc670206075c84281a8481cbd18e0b6d4a7ecb722c493bb16ea0da37fa9"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/domainGuard.js",
+      "size": 9595,
+      "sha256": "e0dcfe824c21d528d7433c6871f8bd6bf28067aa9cfd33a9a26b10b2b1c9a577"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/hotBlocker.min.js",
+      "size": 2807,
+      "sha256": "0eb3fff755e1e6f338c6ba41b7f1e7596e3893fd2d0af0ac1d1bec60f2583e6d"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/hotCookie.min.js",
+      "size": 3816,
+      "sha256": "d442862347f49c50688e59003a6fa7edb75a4095199777e600b628a1514c9b6a"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/hotInImprover.min.js",
+      "size": 2065,
+      "sha256": "33019e05c9d0a610f1b75164de3dbab8bf193e8323203b31dcce11b93042eab5"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/hotOptions.min.js",
+      "size": 3199,
+      "sha256": "90e41e6e8af1e4080b40c186f23fab5346762be2a3368d7426532cfcae8fc9a5"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/init.min.js",
+      "size": 5395,
+      "sha256": "ce0340cdf4cf76c86373a5e422373522387e56d59e6f8f2114be92f727ff0376"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/main.min.js",
+      "size": 16932,
+      "sha256": "8ecf00282176cbcdafa03a754b26873d71178774b2ac415ebbd5d349f54a6cbc"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/mus.min.js",
+      "size": 5335,
+      "sha256": "8dcca3ee8d389621d8f9854e9e63eb75ad7629d381218f3a77ff9f604c721648"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/speedGate.js",
+      "size": 5715,
+      "sha256": "280c7c2f469351c15842c48ac0a447f4f30006603dd66520eb34cfe5da4ee28d"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/js/templates.min.js",
+      "size": 1094,
+      "sha256": "bc121e2c1edc877cee3c93f32d9c2d79bfdc53e53506a48bbf2648cb16c84522"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/login.html",
+      "size": 606,
+      "sha256": "8ae87a9bf49792bafb1451c4c0fbed03716a0062a4575ed883430992f38b00d4"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/logout.html",
+      "size": 687,
+      "sha256": "c6c2d0480836bb53111935c58d7943655d8838d85dddd6fc27f2ffd33031f895"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/redirect.html",
+      "size": 171,
+      "sha256": "92199275da97a23c4e6cab26f90d8caba8387f5d8de369a32eff0c044b1fdfbc"
+    },
+    {
+      "path": "AL-TAJ.NET_extracted/AL-TAJ.NET/status.html",
+      "size": 505,
+      "sha256": "2d8be4d8fcff82bb8ec7e0580365d1b58511ba1a25a79dbb7e4579d4ef8307f7"
+    }
+  ],
+  "Tecsmart": [
+    {
+      "path": "Tecsmart/adimg/1.jpg",
+      "size": 328646,
+      "sha256": "8de3d0e5fa2976d3c599e20286d8735f39729ad72d12fa45519932f419e0ee09"
+    },
+    {
+      "path": "Tecsmart/adimg/2.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "Tecsmart/adimg/3.jpg",
+      "size": 3362,
+      "sha256": "5fda84a8084787cbfdc8b8460e45e964fe7550aa1c1659dc88479a39bd35c523"
+    },
+    {
+      "path": "Tecsmart/adimg/4.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "Tecsmart/adimg/5.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "Tecsmart/alogin.html",
+      "size": 620,
+      "sha256": "77810cf4b0991d51bd69a38a1010a3695b8dfc2a47c357e88531eb361081d408"
+    },
+    {
+      "path": "Tecsmart/config/config.js",
+      "size": 3576,
+      "sha256": "5c9920248e7a73eda8a413cd980131cf0ff088e9fab34e28eb77bff9535a0a69"
+    },
+    {
+      "path": "Tecsmart/css/fontello.min.css",
+      "size": 582,
+      "sha256": "ab54af2a3890167bd7917852b8dd47a1f11c9e839beac27f42ee016dd433b101"
+    },
+    {
+      "path": "Tecsmart/css/style.min.css",
+      "size": 27705,
+      "sha256": "94fb865d85debd58e0dbb9e3746560419383bfb5fb169dcb8b1ec1e4315ffdd4"
+    },
+    {
+      "path": "Tecsmart/css/style.min1.css",
+      "size": 27885,
+      "sha256": "89c6ad3577ebf16f066ceaff8764128676e369462d64c0a7ff5c2049927a3d8b"
+    },
+    {
+      "path": "Tecsmart/css/style.purple_blue.css",
+      "size": 27730,
+      "sha256": "de7ee85ac49c51a7eb4ce2a755f5a4b2c074d4949af0f93150e02ac899e8615b"
+    },
+    {
+      "path": "Tecsmart/css/style.purple_dark_mauve.css",
+      "size": 27728,
+      "sha256": "d1f1bba634cc346a57f1f59eff11f59fdfdb2e64b0ad30d7a6522c1a254a49a0"
+    },
+    {
+      "path": "Tecsmart/css/style.purple_neon.css",
+      "size": 27703,
+      "sha256": "f99fb0063c1126abce7c6fbb0cd35b82cc266c825c472a4b3f772f8a2280488b"
+    },
+    {
+      "path": "Tecsmart/css/style.purple_pink.css",
+      "size": 27734,
+      "sha256": "826f7747b00085ba1fe1bfee96f1b9ecf0153c820f81935de809904726d20b7b"
+    },
+    {
+      "path": "Tecsmart/fonts/Almarai.css",
+      "size": 387,
+      "sha256": "8e4b5566f9a1e8763001e7b05e010b23afd19825c518fe04c995ca3235026a86"
+    },
+    {
+      "path": "Tecsmart/fonts/Almarai.woff2",
+      "size": 16436,
+      "sha256": "573d3df7f66ed2f2b0b4a4abf2c252d0cc26f6ba8d9133c17bfbc8d697646799"
+    },
+    {
+      "path": "Tecsmart/fonts/fontello.woff2",
+      "size": 2748,
+      "sha256": "2f41a4c2be134bb030819bd2bc4ceea6985e4612a1881c1fd8f6b784d86f9dfe"
+    },
+    {
+      "path": "Tecsmart/img/es.svg",
+      "size": 1946,
+      "sha256": "fb7281353aabf7fe115d73b9149f67fb8fd919e1d15615f5e4a5d1d491349fce"
+    },
+    {
+      "path": "Tecsmart/img/favicon.ico",
+      "size": 196,
+      "sha256": "5916a1b728ca1aaa8900291c21dec6fd47cb0e712229d530818e58d3d1d9bb07"
+    },
+    {
+      "path": "Tecsmart/img/gs.svg",
+      "size": 2178,
+      "sha256": "9f018af733901cd137b3856b3734b0c68f0c71fae6f512f5f69dc4ecd0d64f30"
+    },
+    {
+      "path": "Tecsmart/img/h.svg",
+      "size": 1102,
+      "sha256": "de00d82a06a459b3a46a32c4a5d1b9c9cffd839dd34303e3242809e90c05b531"
+    },
+    {
+      "path": "Tecsmart/img/logo.png",
+      "size": 96,
+      "sha256": "8d447892b6efbc450beab391a7003090694cfcd0014d20766150112cab1675a0"
+    },
+    {
+      "path": "Tecsmart/img/ss.svg",
+      "size": 1135,
+      "sha256": "32f496df2ce984e5ce1fa4c2db01a1206875f282fb6542d322e41c33f781ac40"
+    },
+    {
+      "path": "Tecsmart/index.html",
+      "size": 19160,
+      "sha256": "279c59e22b9dae1dfc4c8fa6f53528c7e5df5274877173378afe7ecc23005f53"
+    },
+    {
+      "path": "Tecsmart/js/hotBlocker.min.js",
+      "size": 2807,
+      "sha256": "0eb3fff755e1e6f338c6ba41b7f1e7596e3893fd2d0af0ac1d1bec60f2583e6d"
+    },
+    {
+      "path": "Tecsmart/js/hotCookie.min.js",
+      "size": 3809,
+      "sha256": "ddbf5ce0f3ffdce38bda5cab99abb0f3450fd5b521c70a73b88ffc07c86894be"
+    },
+    {
+      "path": "Tecsmart/js/hotInImprover.min.js",
+      "size": 2065,
+      "sha256": "33019e05c9d0a610f1b75164de3dbab8bf193e8323203b31dcce11b93042eab5"
+    },
+    {
+      "path": "Tecsmart/js/hotOptions.min.js",
+      "size": 3199,
+      "sha256": "90e41e6e8af1e4080b40c186f23fab5346762be2a3368d7426532cfcae8fc9a5"
+    },
+    {
+      "path": "Tecsmart/js/init.min.js",
+      "size": 5395,
+      "sha256": "ce0340cdf4cf76c86373a5e422373522387e56d59e6f8f2114be92f727ff0376"
+    },
+    {
+      "path": "Tecsmart/js/main.min.js",
+      "size": 16932,
+      "sha256": "8ecf00282176cbcdafa03a754b26873d71178774b2ac415ebbd5d349f54a6cbc"
+    },
+    {
+      "path": "Tecsmart/js/mus.min.js",
+      "size": 5335,
+      "sha256": "8dcca3ee8d389621d8f9854e9e63eb75ad7629d381218f3a77ff9f604c721648"
+    },
+    {
+      "path": "Tecsmart/js/speedGate.js",
+      "size": 5543,
+      "sha256": "5d1eef48d1c1d0c85cc85c16819ed46024bf03ad7f6c2566f5327092de14a765"
+    },
+    {
+      "path": "Tecsmart/js/templates.min.js",
+      "size": 1094,
+      "sha256": "bc121e2c1edc877cee3c93f32d9c2d79bfdc53e53506a48bbf2648cb16c84522"
+    },
+    {
+      "path": "Tecsmart/login.html",
+      "size": 606,
+      "sha256": "8ae87a9bf49792bafb1451c4c0fbed03716a0062a4575ed883430992f38b00d4"
+    },
+    {
+      "path": "Tecsmart/logout.html",
+      "size": 687,
+      "sha256": "c6c2d0480836bb53111935c58d7943655d8838d85dddd6fc27f2ffd33031f895"
+    },
+    {
+      "path": "Tecsmart/redirect.html",
+      "size": 171,
+      "sha256": "92199275da97a23c4e6cab26f90d8caba8387f5d8de369a32eff0c044b1fdfbc"
+    },
+    {
+      "path": "Tecsmart/status.html",
+      "size": 505,
+      "sha256": "2d8be4d8fcff82bb8ec7e0580365d1b58511ba1a25a79dbb7e4579d4ef8307f7"
+    }
+  ],
+  "Rasheed": [
+    {
+      "path": "adimg/1.jpg",
+      "size": 328646,
+      "sha256": "8de3d0e5fa2976d3c599e20286d8735f39729ad72d12fa45519932f419e0ee09"
+    },
+    {
+      "path": "adimg/2.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "adimg/3.jpg",
+      "size": 3362,
+      "sha256": "5fda84a8084787cbfdc8b8460e45e964fe7550aa1c1659dc88479a39bd35c523"
+    },
+    {
+      "path": "adimg/4.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "adimg/5.jpg",
+      "size": 9071,
+      "sha256": "14c4474653e06895cd4ef517f4cd1e8e3b7b00412e710ba42d84b17a9cc1faaa"
+    },
+    {
+      "path": "config/config.js",
+      "size": 3576,
+      "sha256": "5c9920248e7a73eda8a413cd980131cf0ff088e9fab34e28eb77bff9535a0a69"
+    },
+    {
+      "path": "css/fontello.min.css",
+      "size": 582,
+      "sha256": "ab54af2a3890167bd7917852b8dd47a1f11c9e839beac27f42ee016dd433b101"
+    },
+    {
+      "path": "css/style.min.css",
+      "size": 27705,
+      "sha256": "94fb865d85debd58e0dbb9e3746560419383bfb5fb169dcb8b1ec1e4315ffdd4"
+    },
+    {
+      "path": "css/style.min1.css",
+      "size": 27885,
+      "sha256": "89c6ad3577ebf16f066ceaff8764128676e369462d64c0a7ff5c2049927a3d8b"
+    },
+    {
+      "path": "css/style.purple_blue.css",
+      "size": 27730,
+      "sha256": "de7ee85ac49c51a7eb4ce2a755f5a4b2c074d4949af0f93150e02ac899e8615b"
+    },
+    {
+      "path": "css/style.purple_dark_mauve.css",
+      "size": 27728,
+      "sha256": "d1f1bba634cc346a57f1f59eff11f59fdfdb2e64b0ad30d7a6522c1a254a49a0"
+    },
+    {
+      "path": "css/style.purple_neon.css",
+      "size": 27703,
+      "sha256": "f99fb0063c1126abce7c6fbb0cd35b82cc266c825c472a4b3f772f8a2280488b"
+    },
+    {
+      "path": "css/style.purple_pink.css",
+      "size": 27734,
+      "sha256": "826f7747b00085ba1fe1bfee96f1b9ecf0153c820f81935de809904726d20b7b"
+    },
+    {
+      "path": "fonts/Almarai.css",
+      "size": 387,
+      "sha256": "8e4b5566f9a1e8763001e7b05e010b23afd19825c518fe04c995ca3235026a86"
+    },
+    {
+      "path": "fonts/Almarai.woff2",
+      "size": 16436,
+      "sha256": "573d3df7f66ed2f2b0b4a4abf2c252d0cc26f6ba8d9133c17bfbc8d697646799"
+    },
+    {
+      "path": "fonts/fontello.woff2",
+      "size": 2748,
+      "sha256": "2f41a4c2be134bb030819bd2bc4ceea6985e4612a1881c1fd8f6b784d86f9dfe"
+    },
+    {
+      "path": "img/es.svg",
+      "size": 1946,
+      "sha256": "fb7281353aabf7fe115d73b9149f67fb8fd919e1d15615f5e4a5d1d491349fce"
+    },
+    {
+      "path": "img/favicon.ico",
+      "size": 196,
+      "sha256": "5916a1b728ca1aaa8900291c21dec6fd47cb0e712229d530818e58d3d1d9bb07"
+    },
+    {
+      "path": "img/gs.svg",
+      "size": 2178,
+      "sha256": "9f018af733901cd137b3856b3734b0c68f0c71fae6f512f5f69dc4ecd0d64f30"
+    },
+    {
+      "path": "img/h.svg",
+      "size": 1102,
+      "sha256": "de00d82a06a459b3a46a32c4a5d1b9c9cffd839dd34303e3242809e90c05b531"
+    },
+    {
+      "path": "img/logo.png",
+      "size": 96,
+      "sha256": "8d447892b6efbc450beab391a7003090694cfcd0014d20766150112cab1675a0"
+    },
+    {
+      "path": "img/ss.svg",
+      "size": 1135,
+      "sha256": "32f496df2ce984e5ce1fa4c2db01a1206875f282fb6542d322e41c33f781ac40"
+    }
+  ]
+}
