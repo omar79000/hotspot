@@ -6,7 +6,7 @@ import hashlib, json, re, subprocess, zipfile
 ROOT = Path(".")
 OUT = Path("analysis-output")
 OUT.mkdir(exist_ok=True)
-SOURCES = {"AL-TAJ.NET": ROOT / "AL-TAJ.NET.rar.zip", "Tecsmart": ROOT / "Tecsmart.zip", "Rasheed": ROOT / "صفحة رشيد اعتقد بدون اي تعديل.zip"}
+SOURCES = {"AL-TAJ.NET": ROOT / "AL-TAJ.NET.rar.zip", "Tecsmart": ROOT / "Tecsmart.zip", "Rasheed": ROOT / "صفحه رشيد اعتقد بدون اي تعديل.zip"}
 TEXT_EXT = {".html", ".htm", ".css", ".js", ".json", ".xml", ".txt", ".php", ".asp", ".md", ".conf", ".lua"}
 PATTERNS = {
     "MikroTik template variables": r"\$\([^)]+\)",
